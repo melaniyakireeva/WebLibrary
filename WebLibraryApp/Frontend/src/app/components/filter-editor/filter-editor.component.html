@@ -1,0 +1,16 @@
+<ng-container *ngIf="filter">
+    <ng-container [ngSwitch]="filter.$type">
+        <ng-container *ngSwitchCase="'OrFilter'">
+            <span>{{filterStrRepresentation}}</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'AndFilter'">
+            <span>{{filterStrRepresentation}}</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'StringFilter'">
+            <app-string-filter-editor [filter]="filter" [possibleColumns]="possibleColumns"></app-string-filter-editor>
+        </ng-container>
+        <ng-container *ngSwitchCase="'NumberFilter'">
+            <app-number-filter-editor [filter]="filter" [possibleColumns]="possibleColumns"></app-number-filter-editor>
+        </ng-container>
+    </ng-container>
+</ng-container>

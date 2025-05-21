@@ -1,0 +1,71 @@
+<div class="custom-portal"><ng-container #viewContainer /></div>
+<header tuiNavigationHeader>
+    <hr />
+    <div class="language-container">
+        <app-language-switcher></app-language-switcher>
+    </div>
+    <div class="theme-container">
+        <app-theme-switcher></app-theme-switcher>
+    </div>
+    <button iconStart="@tui.bell" tuiIconButton type="button">
+        <tui-badge-notification />
+    </button>
+    <button iconStart="@tui.ellipsis" tuiIconButton type="button">
+        More
+    </button>
+    <tui-avatar src="AI" style="cursor: pointer" routerLink="/account"/>
+</header>
+<div [style.display]="'flex'">
+    <aside [tuiNavigationAside]="expanded">
+        <header>
+
+        </header>
+        <button iconStart="@tui.book" tuiAsideItem type="button" routerLink="/books">
+            <span tuiFade>Книги</span>
+        </button>
+        <button iconStart="@tui.type-outline" tuiAsideItem type="button" class="tui-text_body-s"
+            routerLink="/authors">
+            Авторы
+        </button>
+        <button iconStart="@tui.info" tuiAsideItem type="button" class="tui-text_body-s" routerLink="/genres">
+            Жанры
+        </button>
+        <button iconStart="@tui.user-pen" tuiAsideItem type="button" class="tui-text_body-s" routerLink="/accounts" *ngIf="accountInfo?.role == 0">
+            Аккаунты
+        </button>
+        <footer>
+            <button iconStart="@tui.log-out" tuiAsideItem type="button" class="tui-text_body-s" (click)="logOut()">
+                Выход
+            </button>
+            <button tuiAsideItem type="button" [iconStart]="expanded ? '@tui.chevron-left' : '@tui.chevron-right'"
+                (click)="expanded = !expanded">
+                {{ expanded ? 'Свернуть' : 'Раскрыть' }}
+            </button>
+        </footer>
+    </aside>
+    <main tuiNavigationMain class="main-page">
+        <nav tuiNavigationNav [style.position]="'sticky'">
+            <ng-container *ngIf="pageName(); else mainPageMenu">
+                <a routerLink=".">
+                    <tui-icon icon="@tui.chevron-left" />
+                    На главную
+                </a>
+                /
+                <span tuiNavigationLogo>
+                    <span tuiFade>{{ pageName() }}</span>
+                </span>
+            </ng-container>
+            <ng-template #mainPageMenu>
+                <span tuiNavigationLogo>
+                    <span tuiFade>Главная</span>
+                </span>
+            </ng-template>
+            <hr />
+        </nav>
+        <tui-scrollbar class="scrollzone">
+            <div class="container">
+                <router-outlet />
+            </div>
+        </tui-scrollbar>
+    </main>
+</div>

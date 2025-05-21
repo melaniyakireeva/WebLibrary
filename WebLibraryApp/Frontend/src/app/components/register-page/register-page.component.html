@@ -1,0 +1,41 @@
+<div class="auth-container">
+    <div class="auth-block">
+        <div class="auth-content-block">
+            <h2 class="auth-header">Регистрация</h2>
+            <tui-textfield iconEnd="@tui.user-round-pen" class="email-input">
+                <label tuiLabel>Имя</label>
+                <input tuiTextfield [(ngModel)]="name"/>
+            </tui-textfield>
+            <tui-textfield iconEnd="@tui.signature" class="email-input">
+                <label tuiLabel>Фамилия</label>
+                <input tuiTextfield [(ngModel)]="surname"/>
+            </tui-textfield>
+            <tui-textfield iconEnd="@tui.mail" class="email-input">
+                <label tuiLabel>Почта</label>
+                <input tuiTextfield [(ngModel)]="email"/>
+            </tui-textfield>
+            <tui-textfield iconEnd="@tui.drama" class="email-input">
+                <label tuiLabel>Логин</label>
+                <input tuiTextfield [(ngModel)]="login" />
+            </tui-textfield>
+            <tui-textfield class="password-input">
+                <label tuiLabel>Пароль</label>
+                <input tuiTextfield [(ngModel)]="password"/>
+                <tui-icon tuiPassword />
+            </tui-textfield>
+            <tui-textfield class="password-input" class="last-element">
+                <label tuiLabel>Повторите пароль</label>
+                <input tuiTextfield [(ngModel)]="repeatPassword"/>
+                <tui-icon tuiPassword />
+            </tui-textfield>
+            <tui-error [error]="error" />
+            <button appearance="secondary" iconStart="@tui.id-card" tuiButton type="button" 
+                (click)="onRegisterClick()" [disabled]="isRegisterProcess"> 
+                Зарегистрироваться
+            </button>
+            <button appearance="secondary" iconStart="@tui.log-out" tuiButton type="button" routerLink="/">
+                Авторизация
+            </button>
+        </div>
+    </div>
+</div>

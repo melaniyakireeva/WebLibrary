@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+}
+
+tui-root {
+    --reference-color-hover: #fafafa;
+    --tui-theme-color: #1f43df;
+    height: 100%;
+}
+
+tui-root[tuitheme=dark] {
+    --reference-color-hover: #010101;
+    --tui-theme-color: #1c1c22;
+    --tui-background-accent-1: #FFA500;
+    --tui-background-accent-1-hover: #ffbe47;
+    --tui-text-action: #ffffff;
+}
+
+app-navigation-page {
+    height: 100%;
+    display: inline-block;
+}

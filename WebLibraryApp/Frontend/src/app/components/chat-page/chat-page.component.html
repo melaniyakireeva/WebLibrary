@@ -1,0 +1,72 @@
+<h1>Чат с экспертом</h1>
+<div class="container">
+    <div class="chat-container">
+        <div class="room-container">
+            <div class="profile-container">
+                <tui-avatar [src]="'profile.png'" tuiAccessories />
+                <div class="user-name">{{loggedUser?.userLogin}}</div>
+                <div class="split-line"><hr></div>
+            </div>
+            <div class="room-list">
+                <tui-input [tuiTextfieldCleaner]="true" [tuiTextfieldLabelOutside]="true">
+                    Введите название чата
+                    <input tuiTextfieldLegacy [(ngModel)]="fiterRoomText"
+                    (ngModelChange)="onFilterTextUpdate()"/>
+                </tui-input>
+                <tui-scrollbar class="box">
+                    <ng-container *ngIf="userRooms$ | async as userRooms">
+                        <ng-container *ngFor="let item of userRooms">
+                            <button appearance="secondary" size="m" tuiButton type="button" class="room-link" iconStart="@tui.users"
+                                (click)="updateRoom(item)">
+                                {{ item.name | slice:0:20 }}
+                            </button>
+                        </ng-container>
+                    </ng-container>
+                </tui-scrollbar>
+            </div>
+            <div></div>
+            <div class="button-container">
+                <button appearance="secondary" tuiButton type="button" class="room-add" (click)="onAddRoom()">Добавить
+                    комнату</button>
+            </div>
+        </div>
+        <div class="chat-container">
+            <ng-container *ngIf="selectedRoom">
+                <div class="chat-header">
+                    <h3>{{selectedRoom.name}}</h3>
+                    <hr>
+                </div>
+                <tui-scrollbar>
+                    <div class="message-container">
+                        <ng-container *ngIf="roomMessages$ | async as roomMessages">
+                            <ng-container *ngFor="let item of roomMessages">
+                                <div tuiCell class="user-content" [ngClass]="{ownmessage: item.isOwnMessage}">
+                                    <tui-avatar [src]="item.userAvatar || 'profile.png'" tuiAccessories />
+                                    <div tuiTitle>
+                                        {{item.user.name}} {{item.user.surname}}
+                                        <div tuiSubtitle>{{ item.createdAt }}</div>
+                                        <span class="user-message">{{item.text}}</span>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </tui-scrollbar>
+
+                <div class="message-sender-container">
+                    <tui-textfield>
+                        <label tuiLabel>Введите сообщение</label>
+                        <input tuiTextfield [(ngModel)]="message" />
+                        <button appearance="secondary-destructive" iconStart="@tui.paperclip" size="xs" tuiIconButton type="button"
+                            [style.border-radius.%]="100">
+                        </button>
+                        <button appearance="secondary-destructive" iconStart="@tui.send-horizontal" size="xs"
+                            tuiIconButton type="button" [style.border-radius.%]="100" [disabled]="message.length == 0"
+                            (click)="sendMessage()">
+                        </button>
+                    </tui-textfield>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .chat-container {
+        display: grid;
+        height: calc(100vh - 300px);
+        padding: 20px;
+        grid-template-columns: 400px 1fr;
+        grid-gap: 30px;
+        overflow: hidden;
+        width: 90%;
+
+        &>div {
+            box-sizing: border-box;
+            border-radius: 0px;
+            margin: 0px;
+            height: 100%;
+            margin: 0px;
+        }
+
+        & .room-container {
+            box-shadow: var(--tui-shadow-small);
+            box-sizing: border-box;
+            background-color: var(--tui-background-base-alt);
+            padding: 25px;
+            grid-template-rows: 250px 600px 1fr 150px;
+            border-radius: 20px;
+            height: calc(100vh - 300px);
+            display: grid;
+
+            .profile-container {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                overflow: hidden;
+                flex-direction: column;
+
+                tui-avatar {
+                    height: 100px;
+                    width: 100px;
+                    margin-bottom: 10px;
+                }
+
+                & .user-name {
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 50px;
+                }
+
+                & .split-line {
+                    justify-self: flex-end;
+                    width: 500px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .room-list {
+                tui-input {
+                    margin: 15px 20px;
+                }
+
+                .box {
+                    height: calc(100% - 50px);
+
+                    .room-link {
+                        width: calc(100% - 40px);
+                        height: 60px;
+                        margin: 15px 20px;
+                        justify-content: flex-start;
+                        gap: 35px;
+                        padding-left: 35px;
+                        border: 1px solid var(--tui-text-action);
+                    }
+                }
+            }
+
+            .button-container {
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        & .chat-container {
+            box-shadow: var(--tui-shadow-small);
+            display: grid;
+            grid-template-rows: 80px 1fr 120px;
+            grid-template-columns: 1fr;
+            background-color: var(--tui-background-base-alt);
+            padding: 10px;
+            padding-left: 30px;
+            border-radius: 20px;
+            width: 100%;
+            margin: 0px;
+
+            .chat-header {
+                h3 {
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+
+                hr {
+                    margin-top: auto;
+                }
+            }
+
+            .message-container {
+                overflow-y: auto;
+
+                .user-content {
+                    width: 400px;
+                    margin-bottom: 20px;
+
+                    &.ownmessage {
+                        justify-self: flex-end;
+
+                        .user-message {
+                            background-color: var(--tui-background-accent-1-hover);
+                        }
+                    }
+
+                    .user-message {
+                        padding: 5px 20px;
+                        border-radius: 10px;
+                        min-width: 100px;
+                        background-color: var(--tui-background-neutral-1-hover);
+                    }
+                }
+            }
+
+            .message-sender-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+
+                tui-textfield {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}

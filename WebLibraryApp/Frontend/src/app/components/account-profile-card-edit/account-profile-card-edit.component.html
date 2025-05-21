@@ -1,0 +1,35 @@
+<tui-textfield iconEnd="@tui.id-card">
+    <label tuiLabel>Имя</label>
+    <input tuiTextfield [(ngModel)]="name" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.building-2">
+    <label tuiLabel>Фамилия</label>
+    <input tuiTextfield [(ngModel)]="surname" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Почта</label>
+    <input tuiTextfield [(ngModel)]="email" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Логин</label>
+    <input tuiTextfield [(ngModel)]="login" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Пароль</label>
+    <input tuiTextfield [(ngModel)]="password" />
+</tui-textfield>
+<tui-select [valueContent]="itemContent" [(ngModel)]="role">
+    <label tuiLabel>Роль</label>
+    <tui-data-list-wrapper *tuiDataList [itemContent]="itemContent" [items]="roles" />
+</tui-select>
+<div class="button-container">
+    <button size="m" tuiButton type="button" (click)="submit()">
+        Сохранить
+    </button>
+</div>
+
+<ng-template #itemContent let-data>
+    <div class="template">
+        {{ roleService.roleToString(data) }}
+    </div>
+</ng-template>

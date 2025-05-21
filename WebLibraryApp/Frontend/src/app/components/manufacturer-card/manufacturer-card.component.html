@@ -1,0 +1,16 @@
+<tui-textfield iconEnd="@tui.id-card">
+    <label tuiLabel>ID компании</label>
+    <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.manufactureInfo.id" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Имя</label>
+    <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.manufactureInfo.name" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Фамилия</label>
+    <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.manufactureInfo.surname" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Отчество</label>
+    <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.manufactureInfo.patronym" />
+</tui-textfield>

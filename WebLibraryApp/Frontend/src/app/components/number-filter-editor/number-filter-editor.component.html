@@ -1,0 +1,18 @@
+<tui-select tuiTextfieldSize="m" class="tui-space_vertical-4" [formControl]="columnValue"
+    [tuiTextfieldLabelOutside]="true" (ngModelChange)="onFilterColumnChanged($event)">
+    Колонка
+    <input placeholder="Выберите колонку для фильтрации" tuiTextfieldLegacy />
+    <tui-data-list-wrapper *tuiDataList [items]="possibleColumns" />
+</tui-select>
+<tui-select tuiTextfieldSize="m" class="tui-space_vertical-4 tui-space_top-3" [formControl]="operatorValue"
+    (ngModelChange)="onOperatorChanged($event)" [valueContent]="operatorContent" [tuiTextfieldLabelOutside]="true">
+    Оператор
+    <input placeholder="Выберите оператор" tuiTextfieldLegacy />
+    <tui-data-list-wrapper *tuiDataList [itemContent]="operatorContent" [items]="possibleOperators" />
+</tui-select>
+<ng-container *ngIf="showValue">
+    <tui-input-number [(ngModel)]="numberValue" (ngModelChange)="onValueChanged($event)">Значение</tui-input-number>
+</ng-container>
+<ng-template #operatorContent let-item>
+    <span>{{converter.convertOperationToNameString(item)}}</span>
+</ng-template>

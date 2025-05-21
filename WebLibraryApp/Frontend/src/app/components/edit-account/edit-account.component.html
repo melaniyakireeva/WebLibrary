@@ -1,0 +1,55 @@
+<div class="auth-block">
+    <div class="auth-content-block">
+        <tui-textfield iconEnd="@tui.user-round-pen" class="email-input">
+            <label tuiLabel>Имя</label>
+            <input tuiTextfield [(ngModel)]="oldAccountInfo.name" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.signature" class="email-input">
+            <label tuiLabel>Фамилия</label>
+            <input tuiTextfield [(ngModel)]="oldAccountInfo.surname" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.mail" class="email-input">
+            <label tuiLabel>Почта</label>
+            <input tuiTextfield [(ngModel)]="oldAccountInfo.email" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.building-2" class="organization-input">
+            <label tuiLabel>Организация</label>
+            <input tuiTextfield [(ngModel)]="oldAccountInfo.organization" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.drama" class="email-input">
+            <label tuiLabel>Логин</label>
+            <input tuiTextfield [(ngModel)]="oldAccountInfo.login" />
+        </tui-textfield>
+        <hr class="delimeter" width="100%" size="2">
+        <div class="file-block">
+            <label *ngIf="!fileControl.value" tuiInputFiles>
+                <input accept="image/*" tuiInputFiles [formControl]="fileControl" />
+                <ng-template #base>
+                    <div class="content">
+                        <tui-avatar appearance="secondary" src="@tui.cloud-upload" />
+                        <div>Изображение профиля</div>
+                        <div>
+                            Перетащите файл сюда или <a tuiLink>нажмите на поле для выбора</a>
+                        </div>
+                    </div>
+                </ng-template>
+            </label>
+            <tui-files class="tui-space_top-1">
+                <tui-file *ngIf="fileControl.value | tuiFileRejected: {accept: 'image/*'} | async as file" state="error"
+                    [file]="file" (remove)="removeFile()" />
+        
+                <tui-file *ngIf="loadedFiles$ | async as file" [file]="file" (remove)="removeFile()" />
+        
+                <tui-file *ngIf="failedFiles$ | async as file" state="error" [file]="file" (remove)="removeFile()" />
+        
+                <tui-file *ngIf="loadingFiles$ | async as file" state="loading" [file]="file" (remove)="removeFile()" />
+            </tui-files>
+        </div>
+        <ng-container *ngIf="error">
+            <p class="error-message">{{ error }}</p>
+        </ng-container>
+        <button appearance="secondary" iconStart="@tui.id-card" tuiButton type="button" (click)="onSaveClick()">
+            Сохранить изменения
+        </button>
+    </div>
+</div>

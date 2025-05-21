@@ -1,0 +1,91 @@
+.auth-container {
+    background-color: var(--tui-status-info-pale);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .auth-block {
+        position: relative;
+        height: 760px;
+        width: 600px;
+        background-color: var(--tui-background-base);
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .auth-content-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 500px;
+
+            button {
+                cursor: pointer;
+            }
+
+            .error-message {
+                color: red;
+                margin-bottom: 20px;
+            }
+
+            .auth-header {
+                font-family: Montserrat;
+                font-weight: 400;
+                font-size: 40px;
+                line-height: 48.76px;
+                letter-spacing: 0%;
+                margin-bottom: 40px;
+            }
+
+            .email-input,
+            .password-input {
+                width: 100%;
+                margin-bottom: 20px;
+                height: 4rem;
+            }
+
+            .forgot-password {
+                width: 187px;
+                height: 40px;
+                align-self: end;
+                font-family: Montserrat;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17.07px;
+                color: #044DBA;
+                background: none;
+                border: none;
+                cursor: pointer;
+                margin-bottom: 30px;
+            }
+
+            .enter-button {
+                height: 65px;
+                width: 220px;
+                margin-bottom: 35px;
+            }
+
+            .no-account-label {
+                font-family: Montserrat;
+                font-weight: 400;
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+
+            .register-button {
+                width: 300px;
+                height: 85px;
+                border-radius: 20px;
+                border: 1px solid #C7C7C7;
+                font-family: Montserrat;
+                font-weight: 700;
+                font-size: 24px;
+                color: #4973B4;
+            }
+        }
+    }
+}

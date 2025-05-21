@@ -1,0 +1,15 @@
+<ng-container *ngIf="id">
+    <tui-textfield iconEnd="@tui.id-card">
+        <label tuiLabel>ID жанра</label>
+        <input disabled="true" tuiTextfield [(ngModel)]="id" />
+    </tui-textfield>
+</ng-container>
+<tui-textfield iconEnd="@tui.book-copy">
+    <label tuiLabel>Название жанра</label>
+    <input tuiTextfield [(ngModel)]="name" />
+</tui-textfield>
+<div class="button-container">
+    <button size="m" tuiButton type="button" (click)="submit()">
+        Сохранить
+    </button>
+</div>

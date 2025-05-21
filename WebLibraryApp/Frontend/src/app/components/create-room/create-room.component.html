@@ -1,0 +1,22 @@
+<ng-container *ngIf="accounts$ | async as accounts">
+    <tui-input tuiAutoFocus tuiTextfieldSize="m" [(ngModel)]="name" class="input-field">
+        Название чата
+    </tui-input>
+
+    <tui-multi-select [tuiTextfieldLabelOutside]="true" [(search)]="search" class="input-field" [(ngModel)]="selectedAccounts">
+        Выберите аккаунты участников
+        <tui-data-list-wrapper *tuiDataList tuiMultiSelectGroup [itemContent]="itemContent" [items]="accounts" />
+    </tui-multi-select>
+
+    <div class="button-container">
+        <button size="m" tuiButton type="button" (click)="submit()">
+            Создать
+        </button>
+    </div>
+</ng-container>
+
+<ng-template #itemContent let-data>
+    <div class="template">
+        {{ data.name }} {{ data.surname }}
+    </div>
+</ng-template>

@@ -1,0 +1,20 @@
+<h1>Аналитика</h1>
+<h2>Элементы в базе данных</h2>
+<p>Число элементов в базе: {{ekbElementsCount}}</p>
+<p>Число производителей в базе: {{manufacturersCount}}</p>
+<h2 class="header">График по категориям</h2>
+<tui-tabs [(activeItemIndex)]="tabSelectedElement">
+    <button iconStart="@tui.radar" tuiTab type="button">
+        Круговая диаграмма
+    </button>
+    <button iconStart="@tui.chart-column-stacked" tuiTab type="button">
+        Столбчатая диаграмма
+    </button>
+</tui-tabs>
+<tui-ring-chart *ngIf="tabSelectedElement == 0" class="graph" [value]="value" [(activeItemIndex)]="index">
+    <span>{{ sum }}</span>
+    <div>{{ label }}</div>
+</tui-ring-chart>
+<tui-axes *ngIf="tabSelectedElement == 1" class="graph" [axisYLabels]="labelsY">
+    <tui-bar-chart [max]="max" [value]="barValues" [tuiHintContent]="hint" />
+</tui-axes>

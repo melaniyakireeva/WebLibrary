@@ -1,0 +1,23 @@
+<ng-container *ngIf="id">
+    <tui-textfield iconEnd="@tui.id-card">
+        <label tuiLabel>ID компании</label>
+        <input disabled="true" tuiTextfield [(ngModel)]="id" />
+    </tui-textfield>
+</ng-container>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Имя</label>
+    <input tuiTextfield [(ngModel)]="name" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Фамилия</label>
+    <input tuiTextfield [(ngModel)]="surname" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Отчество</label>
+    <input tuiTextfield [(ngModel)]="patronym" />
+</tui-textfield>
+<div class="button-container">
+    <button size="m" tuiButton type="button" (click)="submit()">
+        Сохранить
+    </button>
+</div>

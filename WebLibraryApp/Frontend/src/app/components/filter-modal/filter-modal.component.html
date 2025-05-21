@@ -1,0 +1,46 @@
+<div class="filter-container">
+    <div class="filter-tree">
+        <div class="button-container">
+            <button iconStart="@tui.plus" tuiButton type="button" size="s" (click)="onAddAndFilter()">
+                И фильтр
+            </button>
+            <button iconStart="@tui.plus" tuiButton type="button" size="s" (click)="onAddOrFilter()">
+                ИЛИ фильтр
+            </button>
+            <button iconStart="@tui.plus" tuiButton type="button" size="s" (click)="onAddStringFilter()">
+                Фильтр по строкам
+            </button>
+            <button iconStart="@tui.plus" tuiButton type="button" size="s" (click)="onAddNumberFilter()">
+                Фильтр по числам
+            </button>
+        </div>
+        <div class="tree-container" role="tree" [tuiTreeController]="true">
+            <tui-tree [value]="data" [tuiTreeController]="true" [content]="content" [childrenHandler]="handler" />
+        </div>
+    </div>
+    <div class="filter-data">
+        <ng-container *ngIf="focusElement?.value">
+            <app-filter-editor [filter]="focusElement?.value"
+                [possibleColumns]="context.data.columns"></app-filter-editor>
+        </ng-container>
+    </div>
+</div>
+<div class="button-container-bottom">
+    <button size="m" tuiButton type="button" (click)="submit()">
+        Создать
+    </button>
+</div>
+<ng-template #content let-node="node" let-value>
+    <div class="tree-element" (click)="onFocusTreeElement(value)" [ngClass]="{focused: value == focusElement}">
+        <tui-icon class="tree-icon" [icon]="value.icon" style="margin-right: 4px" />
+        <span class="wrapper">
+            {{ value.text }}
+        </span>
+        <button appearance="secondary-destructive" iconStart="@tui.trash" size="xs" tuiIconButton type="button"
+            [style.margin-left]="'10px'"
+            [style.border-radius.%]="100"
+            (click)="onDeleteFilter(value)">
+            Удалить
+        </button>
+    </div>
+</ng-template>

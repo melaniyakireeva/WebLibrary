@@ -1,0 +1,37 @@
+<div *ngIf="accountInfo" class="account-container">
+    <div tuiAppearance="floating" tuiCardLarge>
+        <header tuiHeader>
+            <h1 tuiTitle>
+                {{accountInfo.name}} {{accountInfo.surname}}
+                <span tuiSubtitle>{{accountInfo.email}}</span>
+            </h1>
+
+            <aside tuiAccessories>
+                <tui-avatar appearance="primary" src="@tui.user-pen" class="edit-button" (click)="onEditProfile()"/>
+            </aside>
+        </header>
+        <div class="account-profile-body">
+            <tui-avatar [src]="fileSrc ?? 'avatar.svg'" class="account-profile-picture"/>
+            <div class="personal-info">
+                <tui-textfield iconEnd="@tui.user-round-pen">
+                    <label tuiLabel>Имя</label>
+                    <input tuiTextfield [readOnly]="true" [(ngModel)]="accountInfo.name" />
+                </tui-textfield>
+                <tui-textfield iconEnd="@tui.signature">
+                    <label tuiLabel>Фамилия</label>
+                    <input tuiTextfield [readOnly]="true" [(ngModel)]="accountInfo.surname" />
+                </tui-textfield>
+            </div>
+            <div class="email-info">
+                <tui-textfield iconEnd="@tui.mail">
+                    <label tuiLabel>Почта</label>
+                    <input tuiTextfield [readOnly]="true" [(ngModel)]="accountInfo.email" />
+                </tui-textfield>
+                <tui-textfield iconEnd="@tui.drama">
+                    <label tuiLabel>Логин</label>
+                    <input tuiTextfield [readOnly]="true" [(ngModel)]="accountInfo.login" />
+                </tui-textfield>
+            </div>
+        </div>
+    </div>
+</div>

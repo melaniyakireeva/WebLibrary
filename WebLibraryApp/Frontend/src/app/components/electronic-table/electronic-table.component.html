@@ -1,0 +1,134 @@
+<tui-scrollbar waIntersectionRoot class="scrollbar full-width" [hidden]="true">
+    <h1>Таблица с электронными компонентами</h1>
+    <div class="filters">
+        <tui-textfield iconStart="@tui.search">
+            <input placeholder="Поиск по названию" tuiTextfield [(ngModel)]="filterNameVal"
+                (ngModelChange)="onFilterNameChange($event)" />
+        </tui-textfield>
+        <tui-select [(ngModel)]="columnForSort" (ngModelChange)="onSortColumnChange($event)">
+            Сортировать по
+            <tui-data-list-wrapper *tuiDataList [items]="sortColumns" />
+        </tui-select>
+        <button iconStart="@tui.filter" tuiButton tuiButtonVertical type="button" [tuiHint]="filterTooltip"
+            (click)="onAddFilter()">
+        </button>
+        <button iconStart="@tui.grid-2x2-plus" tuiButton tuiButtonVertical type="button" [tuiHint]="tableTooltip"
+            (click)="showDialog(tableColumnEditor)">
+        </button>
+        <!-- <button iconStart="@tui.plus" tuiButton type="button" (click)="onAddElement()" *ngIf="accountInfo?.role == 0">
+            Добавить элемент
+        </button> -->
+        <button iconStart="@tui.file-down" tuiButton type="button" (click)="onExportCsvEkb()">
+            Экспорт в CSV
+        </button>
+        <button iconStart="@tui.file" tuiButton type="button" (click)="onCsvFilter()">
+            Выгрузить файлы из CSV
+        </button>
+        <tui-textfield class="organization-input">
+            <label tuiLabel>Фильтр по тексту</label>
+            <input tuiTextfield [(ngModel)]="filterText" />
+            <button iconStart="@tui.wand" size="s" tuiIconButton type="button"
+                [style.border-radius.%]="100" [disabled]="filterText.length == 0" (click)="sendFilterText()">
+            </button>
+        </tui-textfield>
+        <span>{{filterResult}}</span>
+    </div>
+    <ng-container *ngIf="hasFilter">
+        <div class="chip-container">
+            <tui-chip appearance="primary">{{ converter.convertToString(customFilters) }}</tui-chip>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div class="chip-container">
+            <tui-chip appearance="primary">{{ converter.convertToString(filterFromLlm) }}</tui-chip>
+        </div>
+    </ng-container>
+    <div class="table-container">
+        <tui-scrollbar>
+            <div class="tree-container">
+                <app-category-tree (selectedIds)="onSelectedCategoryChanged($event)"></app-category-tree>
+            </div>
+        </tui-scrollbar>
+
+        <div class="ekb-table">
+            <tui-scrollbar>
+                <tui-loader class="loader" [inheritColor]="true" [overlay]="true" [showLoader]="isLoading">
+                    <ng-container *ngIf="currentData$ | async as ekbItems">
+                        <table tuiTable [size]="'m'">
+                            <thead>
+                                <tr>
+                                    <th *ngIf="showOperations" tuiTh>Операции</th>
+                                    <ng-container *ngFor="let column of shownProperties">
+                                        <th tuiTh>{{column}}</th>
+                                    </ng-container>
+                                </tr>
+                            </thead>
+                            <tbody tuiTbody>
+                                <tr *ngFor="let ekbItem of ekbItems">
+                                    <td tuiTd *ngIf="showOperations">
+                                        <span tuiStatus>
+                                            <button appearance="action" iconStart="@tui.search" size="xs" tuiIconButton
+                                                type="button" (click)="onOpenElementCard(ekbItem)">
+                                                Просмотр информации
+                                            </button>
+                                            <button appearance="action" iconStart="@tui.pencil" size="xs" tuiIconButton
+                                                type="button" (click)="onOpenElementCardEdit(ekbItem)"
+                                                *ngIf="accountInfo?.role == 0">
+                                                Редактирование информации
+                                            </button>
+                                            <button appearance="action" iconStart="@tui.book-marked" size="xs" tuiIconButton type="button"
+                                                (click)="onAddReference(ekbItem)">
+                                                Добавить в справочник
+                                            </button>
+                                            <input tuiLike type="checkbox" [appearance]="'flat'"
+                                                (change)="onFavouriteChange(ekbItem, $event)"
+                                                [(ngModel)]="ekbItem.modelRef.isFavourite" />
+                                        </span>
+                                    </td>
+                                    <ng-container *ngFor="let column of shownProperties">
+                                        <ng-container *ngIf="column != 'Файл'">
+                                            <td tuiTd>{{ekbItem.data[column]}}</td>
+                                        </ng-container>
+                                        <ng-container *ngIf="column == 'Файл'">
+                                            <td tuiTd>
+                                                <span tuiStatus>
+                                                    <button appearance="action" iconStart="@tui.download" size="xs"
+                                                        tuiIconButton type="button" (click)="loadFile(ekbItem[column])">
+                                                        Загрузить файл
+                                                    </button>
+                                                </span>
+                                            </td>
+                                        </ng-container>
+                                    </ng-container>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
+                </tui-loader>
+            </tui-scrollbar>
+
+            <div class="paging-container">
+                <tui-pagination [index]="index" [length]="length" (indexChange)="goToPage($event)" />
+                <tui-select [(ngModel)]="item_per_page" (ngModelChange)="onPageAmountChanged()">
+                    Число элементов на странице
+                    <tui-data-list-wrapper *tuiDataList [items]="ITEMS_PER_PAGE_LIST" />
+                </tui-select>
+            </div>
+        </div>
+    </div>
+    <ng-template #template>
+        <tui-icon icon="@tui.star" class="tui-space_right-3" />
+        Star Wars
+    </ng-template>
+    <ng-template #filterTooltip>
+        <div>Задать фильтрацию для текущей таблицы</div>
+    </ng-template>
+    <ng-template #tableTooltip>
+        <div>Изменить колонки таблицы</div>
+    </ng-template>
+    <ng-template #tableColumnEditor let-observer>
+        <div style="padding: 30px;">
+            <app-table-column-editor (onShownColumns)="onColumnChanged($event)"
+                [availableColumns]="shownProperties"></app-table-column-editor>
+        </div>
+    </ng-template>

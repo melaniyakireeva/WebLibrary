@@ -1,0 +1,25 @@
+<div class="auth-container">
+    <div class="auth-block">
+        <div class="auth-content-block">
+            <h2 class="auth-header">Вход в систему</h2>
+            <tui-textfield iconEnd="@tui.mail" class="email-input">
+                <label tuiLabel>Почта</label>
+                <input tuiTextfield [(ngModel)]="email"/>
+            </tui-textfield>
+            <tui-textfield class="password-input">
+                <label tuiLabel>Пароль</label>
+                <input tuiTextfield [(ngModel)]="password"/>
+                <tui-icon tuiPassword />
+            </tui-textfield>
+            <tui-error [error]="error" />
+            <button class="forgot-password" routerLink="/changepassword">Поменять пароль</button>
+            <button class="enter-button" appearance="secondary" iconStart="@tui.log-in" tuiButton type="button" (click)="onLogin()" [disabled]="isAuthProces">
+                Войти в систему
+            </button>
+            <p class="no-account-label">У вас нет аккаунта?</p>
+            <button class="enter-button" appearance="secondary" iconStart="@tui.id-card" tuiButton type="button" routerLink="/register">
+                Регистрация
+            </button>
+        </div>
+    </div>
+</div>

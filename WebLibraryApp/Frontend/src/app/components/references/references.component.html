@@ -1,0 +1,17 @@
+<h1>Справочники</h1>
+<div class="filters">
+    <button iconStart="@tui.plus" tuiButton type="button" (click)="onAddReference()">
+        Добавить справочник
+    </button>
+</div>
+<tui-loader class="loader" [inheritColor]="true" [overlay]="true" [showLoader]="isLoading">
+    <div class="reference-container">
+        <ng-container *ngIf="currentData$ | async as references">
+            <ng-container *ngFor="let reference of references">
+                <app-reference-editor (click)="onReferenceClick(reference)"
+                    [referenceInfo]="reference"
+                ></app-reference-editor>
+            </ng-container>
+        </ng-container>
+    </div>
+</tui-loader>

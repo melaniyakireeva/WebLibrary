@@ -1,0 +1,17 @@
+<tui-multi-select [tuiTextfieldLabelOutside]="true" [(search)]="search" class="input-field"
+    [(ngModel)]="selectedReferences">
+    Выберите справочники
+    <tui-data-list-wrapper *tuiDataList tuiMultiSelectGroup [itemContent]="itemContent" [items]="allReferences" />
+</tui-multi-select>
+
+<div class="button-container">
+    <button size="m" tuiButton type="button" (click)="submit()">
+        Создать
+    </button>
+</div>
+
+<ng-template #itemContent let-data>
+    <div class="template">
+        {{ data }}
+    </div>
+</ng-template>

@@ -1,0 +1,73 @@
+.filter-container {
+    margin-top: 20px;
+    width: 1200px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    .button-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .filter-tree {
+        padding-right: 10px;
+        border-right: 1px solid #000000;
+    }
+
+    .filter-data{
+        padding: 10px;
+    }
+
+    .tree-container {
+        margin-top: 10px;
+
+        .tree-element {
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 5px 15px 5px 5px;
+            display: flex;
+            justify-content: center;
+
+            & .tree-icon {
+                color: var(--tui-background-accent-1);
+            }
+
+            &.focused {
+                color: white;
+                background-color: var(--tui-text-action);
+
+                & .tree-icon {
+                    color: white;
+                }
+            }
+
+            &:hover {
+                background-color: darken(white, 10%);
+            }
+        }
+
+        .tree-element {
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 5px 15px 5px 5px;
+            display: flex;
+            justify-content: center;
+
+            &:hover {
+                background-color: darken(white, 10%);
+            }
+        }
+    }
+}
+
+.button-container-bottom {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & button{
+        width: 300px;
+    }
+}

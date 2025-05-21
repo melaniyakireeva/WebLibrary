@@ -1,0 +1,9 @@
+:host {
+    &>* {
+        margin-bottom: 5px;
+    }
+
+    &>button {
+        width: 100%;
+    }
+}

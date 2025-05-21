@@ -1,0 +1,75 @@
+.auth-block {
+    font-family: Montserrat;
+    position: relative;
+    height: 900px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .auth-content-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 500px;
+
+        button {
+            cursor: pointer;
+        }
+
+        .question-mark {
+            position: absolute;
+            top: 7px;
+            right: 15px;
+            cursor: pointer;
+        }
+
+        .auth-header {
+            font-family: Montserrat;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 48.76px;
+            letter-spacing: 0%;
+            margin-bottom: 40px;
+        }
+
+        tui-textfield {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .file-block {
+            width: 100%;
+            margin-bottom: 20px;
+
+            .content {
+                display: flex;
+                block-size: 14rem;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+        .delimeter {
+            margin: 30px 0px;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        .last-element {
+            margin-bottom: 40px;
+        }
+
+        button {
+            width: 300px;
+            height: 65px;
+            margin-bottom: 30px;
+        }
+    }
+}

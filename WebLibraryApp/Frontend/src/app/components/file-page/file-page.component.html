@@ -1,0 +1,91 @@
+<h1>Файлы</h1>
+<div class="file-container">
+    <div class="left-file-container">
+        <div class="account-storage" tuiAppearance="floating" tuiCardLarge>
+            <header tuiHeader>
+                <h3 tuiTitle>
+                    Место на сервере
+                </h3>
+            </header>
+            <section>
+                <tui-ring-chart [value]="value" [(activeItemIndex)]="index">
+                    <span>{{ label }}</span>
+                </tui-ring-chart>
+            </section>
+        </div>
+        <div class="file-categories" tuiAppearance="floating" tuiCardLarge>
+            <header tuiHeader>
+                <h3 tuiTitle>
+                    Категории файлов
+                </h3>
+            </header>
+            <section>
+                <ng-container *ngIf="fileCategories">
+                    <div *ngFor="let item of fileCategories | keyvalue">
+                        <tui-chip iconStart="@tui.file" [size]="'m'" [style.background-color]="item.key | tuiAutoColor">
+                            <b>{{item.key}}</b><b>{{item.value.length}}</b>
+                        </tui-chip>
+                    </div>
+                </ng-container>
+            </section>
+        </div>
+    </div>
+    <div class="right-file-container">
+        <div class="files" tuiAppearance="floating" tuiCardLarge>
+            <header tuiHeader>
+                <h3 tuiTitle>
+                    Файлы на сервере
+                </h3>
+            </header>
+            <section>
+                <tui-loader class="loader" [inheritColor]="true" [overlay]="true" [showLoader]="isLoading">
+                    <ng-container *ngIf="currentData$ | async as files">
+                        <table tuiTable [size]="'m'">
+                            <thead>
+                                <tr>
+                                    <th tuiTh>Название файла</th>
+                                    <th tuiTh>Размер файла</th>
+                                    <th tuiTh>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody tuiTbody>
+                                <tr *ngFor="let item of files">
+                                    <td tuiTd [style.width]="'10%'">
+                                        <div [tuiCell]="'s'">
+                                            <span tuiTitle>
+                                                {{ item.fileName }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td tuiTd [style.width]="'40%'">
+                                        <div [tuiCell]="'s'">
+                                            <span tuiTitle>
+                                                <span tuiStatus>
+                                                    {{ byteSizeConverter(item.size) }}
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td tuiTd>
+                                        <span tuiStatus>
+                                            <button appearance="action" iconStart="@tui.download" size="xs" tuiIconButton type="button" (click)="loadFile(item.id)">
+                                                Загрузить файл
+                                            </button>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="paging-container">
+                            <tui-pagination [index]="indexVal" [length]="length" (indexChange)="goToPage($event)" />
+                            <tui-select [(ngModel)]="item_per_page" (ngModelChange)="onPageAmountChanged()">
+                                Число элементов на странице
+                                <tui-data-list-wrapper *tuiDataList [items]="ITEMS_PER_PAGE_LIST" />
+                            </tui-select>
+                        </div>
+                    </ng-container>
+                </tui-loader>
+            </section>
+        </div>
+    </div>
+</div>

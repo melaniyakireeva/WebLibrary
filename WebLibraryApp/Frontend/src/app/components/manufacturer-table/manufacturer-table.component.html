@@ -1,0 +1,92 @@
+<div class="filters">
+    <tui-textfield iconStart="@tui.search">
+        <input placeholder="Поиск по названию" tuiTextfield [(ngModel)]="filterNameVal"
+            (ngModelChange)="onFilterNameChange($event)" />
+    </tui-textfield>
+    <tui-select [(ngModel)]="columnForSort" (ngModelChange)="onSortColumnChange($event)">
+        Сортировать по
+        <tui-data-list-wrapper *tuiDataList [items]="columnsType" />
+    </tui-select>
+    <button iconStart="@tui.filter" tuiButton tuiButtonVertical type="button" (click)="onAddFilter()">
+    </button>
+    <button iconStart="@tui.plus" tuiButton type="button" (click)="onAddManufacturer()"
+        *ngIf="accountInfo?.role == 0">
+        Добавить автора
+    </button>
+</div>
+<ng-container *ngIf="hasFilter">
+    <div class="chip-container">
+        <tui-chip appearance="primary">{{ converter.convertToString(customFilters) }}</tui-chip>
+    </div>
+</ng-container>
+<tui-loader class="loader" [inheritColor]="true" [overlay]="true" [showLoader]="isLoading">
+    <ng-container *ngIf="currentData$ | async as manufacturersResponse">
+        <table tuiTable [size]="'m'">
+            <thead>
+                <tr>
+                    <th tuiTh [style.width]="'10%'">ID</th>
+                    <th tuiTh>Имя</th>
+                    <th tuiTh>Фамилия</th>
+                    <th tuiTh>Отчество</th>
+                    <th tuiTh>Операции</th>
+                </tr>
+            </thead>
+            <tbody tuiTbody>
+                <tr *ngFor="let item of manufacturersResponse.items">
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.id }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                <span tuiStatus>
+                                    {{ item.name }}
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.surname }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.patronym }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <span tuiStatus>
+                            <button appearance="action" iconStart="@tui.search" size="xs" tuiIconButton type="button" (click)="onOpenManufactureCard(item)">
+                                Просмотр информации
+                            </button>
+                            <button appearance="action" iconStart="@tui.pencil" size="xs" tuiIconButton type="button" *ngIf="accountInfo?.role == 0"
+                                (click)="onOpenManufactureCardEdit(item)">
+                                Редактирование информации
+                            </button>
+                            <button appearance="action" iconStart="@tui.trash" size="xs" tuiIconButton type="button" *ngIf="accountInfo?.role == 0"
+                                (click)="onDeleteManufacturer(item)">
+                                Удаление автора
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</tui-loader>
+<div class="paging-container">
+    <tui-pagination [index]="index" [length]="length" (indexChange)="goToPage($event)" />
+    <tui-select [(ngModel)]="item_per_page" (ngModelChange)="onPageAmountChanged()">
+        Число элементов на странице
+        <tui-data-list-wrapper *tuiDataList [items]="ITEMS_PER_PAGE_LIST" />
+    </tui-select>
+</div>

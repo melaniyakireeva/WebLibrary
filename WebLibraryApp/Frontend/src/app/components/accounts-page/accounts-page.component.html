@@ -1,0 +1,103 @@
+<h1>Аккаунты</h1>
+<div class="filters">
+    <tui-textfield iconStart="@tui.search">
+        <input placeholder="Поиск по логину" tuiTextfield [(ngModel)]="filterNameVal"
+            (ngModelChange)="onFilterNameChange($event)" />
+    </tui-textfield>
+    <tui-select [(ngModel)]="columnForSort" (ngModelChange)="onSortColumnChange($event)">
+        Сортировать по
+        <tui-data-list-wrapper *tuiDataList [items]="columnsType" />
+    </tui-select>
+    <button iconStart="@tui.plus" tuiButton type="button" (click)="onAddUser()">
+        Добавить пользователя
+    </button>
+</div>
+<tui-loader class="loader" [inheritColor]="true" [overlay]="true" [showLoader]="isLoading">
+    <ng-container *ngIf="currentData$ | async as accounts">
+        <table tuiTable [size]="'m'">
+            <thead>
+                <tr>
+                    <th tuiTh [style.width]="'10%'">ID</th>
+                    <th tuiTh [style.width]="'40%'">Имя</th>
+                    <th tuiTh>Фамилия</th>
+                    <th tuiTh>Логин</th>
+                    <th tuiTh>Роли</th>
+                    <th tuiTh>Дата последнего посещения</th>
+                    <th tuiTh>Заблокирован</th>
+                    <th tuiTh>Действия</th>
+                </tr>
+            </thead>
+            <tbody tuiTbody>
+                <tr *ngFor="let item of accounts">
+                    <td tuiTd [style.width]="'10%'">
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.id }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd [style.width]="'40%'">
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                <span tuiStatus>
+                                    {{ item.name }}
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.surname }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.login }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.organization }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ roleService.roleToString(item.role) }}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <span tuiTitle>
+                                {{ item.lastVisit | date:'full':undefined:'ru-RU'}}
+                            </span>
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <div [tuiCell]="'s'">
+                            <input disabled="true" type="checkbox" [size]="'s'" [(ngModel)]="item.isDisabled" />
+                        </div>
+                    </td>
+                    <td tuiTd>
+                        <span tuiStatus>
+                            <button appearance="action" [iconStart]="item.isDisabled ? '@tui.lock-open': '@tui.lock'" size="xs" tuiIconButton type="button" (click)="onDisableUser(item)">
+                                Заблокировать пользователя
+                            </button>
+                            <button appearance="action" iconStart="@tui.trash" size="xs" tuiIconButton
+                                type="button" (click)="onDeleteUser(item)">
+                                Удалить пользователя
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</tui-loader>

@@ -1,0 +1,73 @@
+<tui-textfield iconEnd="@tui.id-card">
+    <label tuiLabel>ID книги</label>
+    <input [readOnly]="true" tuiTextfield [(ngModel)]="id" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Название</label>
+    <input tuiTextfield [(ngModel)]="name" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Описание</label>
+    <input tuiTextfield [(ngModel)]="description" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Шифр</label>
+    <input tuiTextfield [(ngModel)]="cipher" />
+</tui-textfield>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>ISBN</label>
+    <input tuiTextfield [(ngModel)]="isbn" />
+</tui-textfield>
+<tui-input-number [(ngModel)]="price" [tuiTextfieldPostfix]="'₽'">
+    Цена
+</tui-input-number>
+<tui-select [valueContent]="itemContent" [(ngModel)]="genre">
+    <label tuiLabel>Жанр</label>
+    <tui-data-list-wrapper *tuiDataList [itemContent]="itemContent" [items]="genres" />
+</tui-select>
+<tui-select [valueContent]="authorContent" [(ngModel)]="author">
+    <label tuiLabel>Автор</label>
+    <tui-data-list-wrapper *tuiDataList [itemContent]="authorContent" [items]="authors" />
+</tui-select>
+<tui-textfield iconEnd="@tui.letter-text">
+    <label tuiLabel>Год публикации</label>
+    <input tuiTextfield [(ngModel)]="publishYear" />
+</tui-textfield>
+<tui-input-date [(ngModel)]="receiptDate">
+    Дата публикации
+</tui-input-date>
+<div class="file-block">
+    <label *ngIf="!fileControl.value" tuiInputFiles>
+        <input accept="image/*" tuiInputFiles [formControl]="fileControl" />
+        <ng-template #base>
+            <div class="content">
+                <tui-avatar appearance="secondary" src="@tui.cloud-upload" />
+                <div>Изображение книги</div>
+                <div>
+                    Перетащите файл сюда или <a tuiLink>нажмите на поле для выбора</a>
+                </div>
+            </div>
+        </ng-template>
+    </label>
+    <tui-files class="tui-space_top-1">
+        <tui-file *ngIf="fileControl.value | tuiFileRejected: {accept: 'image/*'} | async as file" state="error"
+            [file]="file" (remove)="removeFile()" />
+
+        <tui-file *ngIf="loadedFiles$ | async as file" [file]="file" (remove)="removeFile()" />
+
+        <tui-file *ngIf="failedFiles$ | async as file" state="error" [file]="file" (remove)="removeFile()" />
+
+        <tui-file *ngIf="loadingFiles$ | async as file" state="loading" [file]="file" (remove)="removeFile()" />
+    </tui-files>
+</div>
+<div class="button-container">
+    <button size="m" tuiButton type="button" (click)="submit()">
+        Сохранить
+    </button>
+</div>
+<ng-template #itemContent let-data>
+    <span>{{data.name}}</span>
+</ng-template>
+<ng-template #authorContent let-data>
+    <span>{{data.name}} {{data.surname}}</span>
+</ng-template>

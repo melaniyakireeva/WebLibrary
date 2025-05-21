@@ -1,0 +1,58 @@
+:host {
+    .file-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+
+        [tuiTh],
+        [tuiTd] {
+            border-inline-start: none;
+            border-inline-end: none;
+        }
+
+        & h3 {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        &>div {
+            padding: 10px;
+
+            .account-storage {
+                margin-bottom: 20px;
+            }
+        }
+
+        .left-file-container {
+            .account-storage {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .file-categories {
+            tui-chip {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        .right-file-container {
+            .files {
+                height: 100%;
+
+                section{
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    .paging-container {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: auto 300px;
+        grid-gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+}

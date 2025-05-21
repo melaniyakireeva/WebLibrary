@@ -1,0 +1,9 @@
+:host{
+    & > * {
+        margin: 10px;
+    }
+
+    & > *:first-child{
+        margin-top: 30px;
+    }
+}

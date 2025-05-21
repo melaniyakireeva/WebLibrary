@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="fields">
+        <tui-textfield iconEnd="@tui.id-card">
+            <label tuiLabel>ID книги</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.id" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Название</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.name" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Описание</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.description" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Шифр</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.cipher" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>ISBN</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.isbn" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Цена</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.price" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Автор</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.authorVal.name" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Жанр</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.genreVal.name" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Год публикации</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.publishYear" />
+        </tui-textfield>
+        <tui-textfield iconEnd="@tui.letter-text">
+            <label tuiLabel>Год издания</label>
+            <input [readOnly]="true" tuiTextfield [(ngModel)]="context.data.bookInfo.receiptDate" />
+            </tui-textfield>
+    </div>
+    <div class="image-container">
+        <img [src]="sourceFile ?? 'avatar.svg'" class="account-profile-picture" />
+    </div>
+</div>

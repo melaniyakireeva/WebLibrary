@@ -1,0 +1,51 @@
+:host{
+    display: grid;
+    grid-template-rows: 0 auto 1fr;
+
+    --tui-font-text-s: bold 1rem / 1.5rem var(--tui-font-text);
+    
+    .language-container{
+        margin-right: 10px;
+    }
+
+    .theme-container{
+        & > span{
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 2rem;
+    }
+
+    .project-header{
+        height: 32px;
+    }
+
+    aside[tuiNavigationAside]._expanded {
+        inline-size: 17.5rem;
+    }
+
+    [tuiAsideItem][tuiAsideItem] {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    main{
+        padding-right: 0px;
+        padding-bottom: 10px;
+        max-height: calc(100vh - 3rem);
+        justify-content: left;
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: repeat(12, 1fr);
+
+        .scrollzone{
+            width: 100%;
+
+            .container{
+                padding-right: min(50px, 10%);
+            }
+        }
+    }
+}

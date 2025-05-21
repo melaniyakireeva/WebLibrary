@@ -1,0 +1,18 @@
+.input-field {
+    margin: 20px 0px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & button {
+        width: 200px;
+    }
+}
+
+.template {
+    display: flex;
+    align-items: center;
+}

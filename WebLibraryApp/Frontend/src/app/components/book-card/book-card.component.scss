@@ -1,0 +1,24 @@
+:host {
+    .container {
+        display: grid;
+        grid-template-columns: 600px 500px;
+    }
+
+    .image-container {
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .fields {
+        &>*:first-child {
+            margin-top: 30px;
+        }
+
+        &>* {
+            width: 500px;
+            margin: 10px;
+        }
+    }
+}

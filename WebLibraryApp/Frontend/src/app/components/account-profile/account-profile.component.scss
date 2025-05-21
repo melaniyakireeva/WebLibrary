@@ -1,0 +1,54 @@
+.account-container {
+    margin: 50px;
+
+    .account-profile-body {
+        padding: 10px 0px;
+        display: grid;
+        grid-template-columns: 200px 1fr 1fr;
+        height: 240px;
+        gap: 200px;
+
+        .account-profile-picture{
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        &>img {
+            height: 100%;
+        }
+
+        & tui-textfield {
+            margin: 20px 0px;
+        }
+    }
+
+    .edit-button {
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1000px) {
+    .account-container {
+        .account-profile-body {
+            justify-items: center;
+            align-items: center;
+            height: 700px;
+            grid-template-columns: 1fr;
+            grid-gap: 0px;
+            grid-template-rows: 200px 200px 200px;
+
+            & > div{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1500px) {
+    .account-container {
+        .account-profile-body {
+            grid-gap: 50px;
+        }
+    }
+}

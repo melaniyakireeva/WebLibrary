@@ -1,0 +1,37 @@
+<tui-tabs [(activeItemIndex)]="activeItemIndex">
+    <button iconStart="@tui.credit-card" tuiTab type="button">
+        Характеристики
+    </button>
+    <button iconStart="@tui.message-circle" tuiTab type="button">
+        Чат
+    </button>
+</tui-tabs>
+<div class="content">
+    <ng-container *ngIf="activeItemIndex == 0">
+        <table tuiTable [size]="'m'">
+            <thead>
+                <tr>
+                    <th tuiTh>Параметр</th>
+                    <th tuiTh>Значение</th>
+                </tr>
+            </thead>
+            <tbody tuiTbody>
+                <tr *ngFor="let element of elementsKey">
+                    <td tuiTd>
+                        <span tuiStatus>
+                            {{element}}
+                        </span>
+                    </td>
+                    <td tuiTd>
+                        <span tuiStatus>
+                            {{elementVals[element]}}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+    <ng-container *ngIf="activeItemIndex == 1">
+        <p>Чат</p>
+    </ng-container>
+</div>

@@ -1,0 +1,19 @@
+.card-info {
+    width: 240px;
+    height: 180px;
+    border: 2px solid var(--tui-background-accent-1);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card-info:hover {
+    background-color: var(--reference-color-hover);
+}
+
+tui-root[tuitheme=dark] {
+    .card-info:hover {
+        background-color: var(--reference-color-hover);;
+    }
+}
