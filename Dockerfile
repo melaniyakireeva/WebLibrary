@@ -11,7 +11,7 @@ RUN npm install @angular/cli -g
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/dotnet:2.1-sdk AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["AngularWebApp/AngularWebApp.csproj", "AngularWebApp/"]
 RUN dotnet restore "AngularWebApp/AngularWebApp.csproj"
