@@ -14,16 +14,26 @@ COPY ["backend/", "./"]
 WORKDIR "/src/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
-# Этап 3: Сборка фронтенда (исправленный)
-FROM node:18.18.2-alpine AS frontend-builder
+# Этап 3: Сборка фронтенда - ОБНОВЛЕННЫЙ ОБРАЗ NODE
+FROM node:18.19.1-alpine AS frontend-builder
 WORKDIR /src
+
+# Установка системных зависимостей
 RUN apk add --no-cache python3 make g++
+
+# Копируем package файлы
 COPY ["Frontend/package.json", "Frontend/package-lock.json", "./"]
+
+# Установка Angular CLI и зависимостей
 RUN npm install -g @angular/cli@latest && \
     npm install --force && \
     npm cache clean --force
+
+# Копируем исходный код
 COPY ["Frontend/", "./"]
-RUN ng build --prod --base-href "https://wisdom-frontend-1947-5cd9.twcl.net/"
+
+# Сборка проекта
+RUN ng build --configuration production --base-href "https://wisdom-frontend-1947-5cd9.twcl.net/"
 
 # Этап 4: Публикация
 FROM build AS publish
