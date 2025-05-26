@@ -6,42 +6,36 @@ EXPOSE 80
 # Этап 2: Сборка .NET приложения
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-
-# Копируем solution и проекты
 COPY ["backend/LibraryApp.sln", "./"]
 COPY ["backend/LibraryApi/LibraryApp.csproj", "LibraryApi/"]
 COPY ["backend/DataModels/DataModels.csproj", "DataModels/"]
-
-# Восстанавливаем зависимости
 RUN dotnet restore "LibraryApp.sln"
-
-# Копируем весь код
 COPY ["backend/", "./"]
-
-# Собираем проект
 WORKDIR "/src/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
-# Этап 3: Сборка Angular
+# Этап 3: Сборка Angular (полностью исправленный)
 FROM node:20.11.1-alpine AS frontend-builder
 WORKDIR /src
 
-# Устанавливаем системные зависимости
+# 1. Устанавливаем системные зависимости (исправлено 'app' на 'apk')
 RUN apk add --no-cache python3 make g++
 
-# Копируем package файлы
+# 2. Копируем только package файлы
 COPY ["Frontend/package.json", "Frontend/package-lock.json", "./"]
 
-# Устанавливаем зависимости
-RUN npm install -g @angular/cli@latest && \
-    npm install --force && \
+# 3. Чистим кеш и устанавливаем зависимости
+RUN rm -rf node_modules && \
+    rm -f package-lock.json && \
+    npm install -g @angular/cli@latest && \
+    npm install --force --legacy-peer-deps && \
     npm cache clean --force
 
-# Копируем исходный код
+# 4. Копируем весь фронтенд код
 COPY ["Frontend/", "./"]
 
-# Собираем проект
-RUN npm run build -- --configuration=production --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/"
+# 5. Собираем проект (исправленная команда)
+RUN ng build --configuration production --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/"
 
 # Этап 4: Публикация
 FROM build AS publish
