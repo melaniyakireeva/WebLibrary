@@ -1,11 +1,11 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
-# Setup NodeJs
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+# Setup NodeJs (обновленная версия Node.js)
 RUN apt-get update && \
     apt-get install -y wget && \
     apt-get install -y gnupg2 && \
-    wget -qO- https://deb.nodesource.com/setup_8.x | bash - && \
+    wget -qO- https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y build-essential nodejs
-RUN npm install @angular/cli -g
+RUN npm install -g @angular/cli
 # End setup
 
 WORKDIR /app
