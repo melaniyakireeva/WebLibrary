@@ -14,27 +14,18 @@ COPY ["backend/", "./"]
 WORKDIR "/src/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
-# Этап 3: Сборка фронтенда (Angular) - ОБНОВЛЕННЫЙ ОБРАЗ NODE
+# Этап 3: Сборка фронтенда (исправленный)
 FROM node:18.18.2-alpine AS frontend-builder
 WORKDIR /src
-
-# Установка Python и build-essential для node-gyp
 RUN apk add --no-cache python3 make g++
-
-# Копируем package файлы
-COPY ["Frontend/package.json", "Frontend/package-lock.json*", "./"]
-
-# Чистка кеша npm и установка зависимостей
-RUN npm cache clean --force && \
-    npm install --force
-
-# Копируем весь фронтенд код
+COPY ["Frontend/package.json", "Frontend/package-lock.json", "./"]
+RUN npm install -g @angular/cli@latest && \
+    npm install --force && \
+    npm cache clean --force
 COPY ["Frontend/", "./"]
+RUN ng build --prod --base-href "https://wisdom-frontend-1947-5cd9.twcl.net/"
 
-# Собираем фронтенд
-RUN npm run build --prod
-
-# Этап 4: Публикация финального образа
+# Этап 4: Публикация
 FROM build AS publish
 WORKDIR "/src/LibraryApi"
 RUN dotnet publish "LibraryApp.csproj" -c Release -o /app/publish
