@@ -1052,10 +1052,7 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3"
         },
         "runtime": {
-          "DataModels.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "DataModels.dll": {}
         }
       }
     }
