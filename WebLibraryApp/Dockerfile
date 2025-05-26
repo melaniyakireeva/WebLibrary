@@ -14,29 +14,33 @@ COPY ["backend/", "./"]
 WORKDIR "/src/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
-# Этап 3: Сборка Angular (оптимизированный)
+# Этап 3: Сборка Angular (с исправлением ошибки rollup)
 FROM node:18.20.2-alpine AS frontend-builder
 WORKDIR /src
 
 # Установка системных зависимостей
 RUN apk add --no-cache python3 make g++
 
-# Копируем package файлы
-COPY ["Frontend/package.json", "Frontend/package-lock.json", "./"]
+# Копируем только файлы, необходимые для установки зависимостей
+COPY Frontend/package.json Frontend/package-lock.json ./
 
-# Установка зависимостей с очисткой кеша
+# Чистка кеша и установка зависимостей
 RUN npm cache clean --force && \
     rm -rf node_modules && \
     npm install -g @angular/cli@18.2.10 && \
     npm install --force --legacy-peer-deps
 
-# Копируем исходный код
-COPY ["Frontend/", "./"]
+# Проверяем наличие проблемных модулей
+RUN npm list @rollup/rollup || true
 
-# Сборка проекта
-RUN ng build --configuration production --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/"
+# Копируем остальные файлы проекта
+COPY Frontend/ .
 
-# Этап 4: Публикация
+# Сборка проекта с дополнительными флагами для диагностики
+RUN ng config -g cli.warnings.versionMismatch false && \
+    ng build --configuration production --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/" --verbose
+
+# Этап 4: Публикация .NET приложения
 FROM build AS publish
 WORKDIR "/src/LibraryApi"
 RUN dotnet publish "LibraryApp.csproj" -c Release -o /app/publish
