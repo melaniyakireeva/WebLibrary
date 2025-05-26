@@ -24,11 +24,11 @@ FROM node:16 AS frontend-builder
 WORKDIR /src
 
 # Копируем и устанавливаем зависимости Angular
-COPY ["frontend/package.json", "frontend/package-lock.json*", "./"]
+COPY ["Frontend/package.json", "Frontend/package-lock.json*", "./"]
 RUN npm install
 
 # Копируем и собираем фронтенд
-COPY ["frontend/", "."]
+COPY ["Frontend/", "."]
 RUN npm run build --prod
 
 # Этап 4: Публикация финального образа
@@ -44,6 +44,6 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 
 # Копируем собранный Angular фронтенд
-COPY --from=frontend-builder /src/dist/frontend ./wwwroot
+COPY --from=frontend-builder /src/dist/Frontend ./wwwroot
 
 ENTRYPOINT ["dotnet", "LibraryApp.dll"]
