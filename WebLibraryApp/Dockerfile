@@ -14,24 +14,32 @@ COPY ["backend/", "./"]
 WORKDIR "/src/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
-# Этап 3: Сборка Angular (используем node:18-bullseye вместо alpine)
-FROM node:18-bullseye AS frontend-builder
+# Этап 3: Сборка Angular с явной установкой Rollup
+FROM node:18.20.2-bullseye AS frontend-builder
 WORKDIR /src
 
-# Установка Angular CLI глобально
+# 1. Установка Angular CLI
 RUN npm install -g @angular/cli@18.2.10
 
-# Копируем только файлы, необходимые для установки зависимостей
+# 2. Копируем package файлы
 COPY Frontend/package.json Frontend/package-lock.json ./
 
-# Очистка и установка зависимостей
+# 3. Явно устанавливаем Rollup перед основными зависимостями
+RUN npm install --no-save rollup@3.29.4 @rollup/rollup-linux-x64-gnu
+
+# 4. Установка основных зависимостей с очисткой кеша
 RUN npm ci --no-optional --force
 
-# Копируем остальные файлы проекта
+# 5. Проверяем установленные версии Rollup
+RUN npm list rollup @rollup/rollup-linux-x64-gnu
+
+# 6. Копируем исходный код
 COPY Frontend/ .
 
-# Сборка проекта
-RUN ng build --configuration production --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/"
+# 7. Сборка с дополнительными флагами
+RUN ng build --configuration production \
+    --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/" \
+    --verbose
 
 # Этап 4: Публикация .NET приложения
 FROM build AS publish
