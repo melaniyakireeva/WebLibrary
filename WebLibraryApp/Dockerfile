@@ -7,43 +7,51 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
-# Копируем solution файл и .csproj файлы
-COPY ["backend/LibraryApp.sln", "."]
-COPY ["backend/LibraryApi/LibraryApp.csproj", "LibraryApi/"]
+# 1. Копируем solution файл
+COPY ["backend/LibraryApp.sln", "./"]
+
+# 2. Копируем .csproj файл
+COPY ["backend/LibraryApi/LibraryApp.csproj", "backend/LibraryApi/"]
+
+# 3. Восстанавливаем зависимости
 RUN dotnet restore "LibraryApp.sln"
 
-# Копируем весь backend код
-COPY ["backend/", "."]
+# 4. Копируем весь backend код
+COPY ["backend/", "backend/"]
 
-# Собираем проект
-WORKDIR "/src/LibraryApi"
+# 5. Собираем проект
+WORKDIR "/src/backend/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
-# Этап 3: Установка Node.js и сборка Angular
+# Этап 3: Сборка фронтенда (Angular)
 FROM node:16 AS frontend-builder
 WORKDIR /src
 
-# Копируем и устанавливаем зависимости Angular
-COPY ["Frontend/package.json", "Frontend/package-lock.json*", "./"]
+# 1. Копируем package.json и package-lock.json
+COPY ["Frontend/package.json", "Frontend/package-lock.json", "./"]
+
+# 2. Устанавливаем зависимости
 RUN npm install
 
-# Копируем и собираем фронтенд
-COPY ["Frontend/", "."]
+# 3. Копируем весь фронтенд код
+COPY ["Frontend/", "./"]
+
+# 4. Собираем фронтенд
 RUN npm run build --prod
 
 # Этап 4: Публикация финального образа
 FROM build AS publish
-WORKDIR "/src/LibraryApi"
+WORKDIR "/src/backend/LibraryApi"
 RUN dotnet publish "LibraryApp.csproj" -c Release -o /app/publish
 
 # Финальный образ
 FROM base AS final
 WORKDIR /app
 
-# Копируем собранный .NET бэкенд
+# 1. Копируем собранный .NET бэкенд
 COPY --from=publish /app/publish .
 
-# Копируем собранный Angular фронтенд
+# 2. Копируем собранный Angular фронтенд
 COPY --from=frontend-builder /src/dist/Frontend ./wwwroot
 
 ENTRYPOINT ["dotnet", "LibraryApp.dll"]
