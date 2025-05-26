@@ -5,23 +5,29 @@ EXPOSE 80
 
 # Этап 2: Сборка .NET приложения
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
+WORKDIR /
 
 # 1. Копируем solution файл
 COPY ["backend/LibraryApp.sln", "./"]
 
 # 2. Копируем ВСЕ .csproj файлы
-COPY ["backend/LibraryApi/LibraryApp.csproj", "backend/LibraryApi/"]
-COPY ["backend/DataModels/DataModels.csproj", "backend/DataModels/"]
+COPY ["backend/LibraryApi/LibraryApp.csproj", "LibraryApi/"]
+COPY ["backend/DataModels/DataModels.csproj", "DataModels/"]
 
-# 3. Восстанавливаем зависимости
+# 3. Создаем структуру каталогов, которую ожидает solution
+RUN mkdir -p src && \
+    ln -s /backend /src/backend && \
+    ln -s /LibraryApi /src/LibraryApi && \
+    ln -s /DataModels /src/DataModels
+
+# 4. Восстанавливаем зависимости
 RUN dotnet restore "LibraryApp.sln"
 
-# 4. Копируем весь backend код
+# 5. Копируем весь backend код
 COPY ["backend/", "backend/"]
 
-# 5. Собираем основной проект
-WORKDIR "/src/backend/LibraryApi"
+# 6. Собираем основной проект
+WORKDIR "/backend/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
 # Этап 3: Сборка фронтенда (Angular)
@@ -42,7 +48,7 @@ RUN npm run build --prod
 
 # Этап 4: Публикация финального образа
 FROM build AS publish
-WORKDIR "/src/backend/LibraryApi"
+WORKDIR "/backend/LibraryApi"
 RUN dotnet publish "LibraryApp.csproj" -c Release -o /app/publish
 
 # Финальный образ
