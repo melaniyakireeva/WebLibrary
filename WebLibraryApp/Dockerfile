@@ -14,29 +14,26 @@ COPY ["backend/", "./"]
 WORKDIR "/src/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
-# Этап 3: Сборка Angular (полностью исправленный)
+# Этап 3: Сборка Angular (оптимизированный)
 FROM node:18.20.2-alpine AS frontend-builder
 WORKDIR /src
 
-# 1. Устанавливаем системные зависимости
+# Установка системных зависимостей
 RUN apk add --no-cache python3 make g++
 
-# 2. Копируем только package файлы
+# Копируем package файлы
 COPY ["Frontend/package.json", "Frontend/package-lock.json", "./"]
 
-# 3. Фиксируем версии проблемных пакетов
-RUN npm config set legacy-peer-deps true && \
-    npm install -g @angular/cli@14.2.0 && \
-    npm install --force && \
-    npm cache clean --force
+# Установка зависимостей с очисткой кеша
+RUN npm cache clean --force && \
+    rm -rf node_modules && \
+    npm install -g @angular/cli@18.2.10 && \
+    npm install --force --legacy-peer-deps
 
-# 4. Явно обновляем проблемные пакеты
-RUN npm install entities@latest parse5@latest --save-exact
-
-# 5. Копируем весь фронтенд код
+# Копируем исходный код
 COPY ["Frontend/", "./"]
 
-# 6. Собираем проект с явным указанием конфигурации
+# Сборка проекта
 RUN ng build --configuration production --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/"
 
 # Этап 4: Публикация
