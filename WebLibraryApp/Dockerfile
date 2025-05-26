@@ -10,8 +10,9 @@ WORKDIR /src
 # 1. Копируем solution файл
 COPY ["backend/LibraryApp.sln", "./"]
 
-# 2. Копируем .csproj файл
+# 2. Копируем ВСЕ .csproj файлы
 COPY ["backend/LibraryApi/LibraryApp.csproj", "backend/LibraryApi/"]
+COPY ["backend/DataModels/DataModels.csproj", "backend/DataModels/"]
 
 # 3. Восстанавливаем зависимости
 RUN dotnet restore "LibraryApp.sln"
@@ -19,7 +20,7 @@ RUN dotnet restore "LibraryApp.sln"
 # 4. Копируем весь backend код
 COPY ["backend/", "backend/"]
 
-# 5. Собираем проект
+# 5. Собираем основной проект
 WORKDIR "/src/backend/LibraryApi"
 RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 
@@ -27,7 +28,7 @@ RUN dotnet build "LibraryApp.csproj" -c Release -o /app/build
 FROM node:16 AS frontend-builder
 WORKDIR /src
 
-# 1. Копируем package.json и package-lock.json
+# 1. Копируем package файлы
 COPY ["Frontend/package.json", "Frontend/package-lock.json", "./"]
 
 # 2. Устанавливаем зависимости
