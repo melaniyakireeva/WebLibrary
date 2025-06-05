@@ -5,62 +5,71 @@ import {
   TuiTilesComponent,
   tuiChipOptionsProvider,
   tuiProgressOptionsProvider
-} from "./chunk-KCS7CNUS.js";
-import "./chunk-6J6BA2D3.js";
-import "./chunk-IOJOZZZW.js";
-import {
-  TuiChevron
-} from "./chunk-YNKCD5LD.js";
+} from "./chunk-OPKUPS3B.js";
+import "./chunk-SF3F4LER.js";
 import {
   tuiBadgeOptionsProvider
-} from "./chunk-VPDUVDIQ.js";
+} from "./chunk-VVR4ONNT.js";
+import "./chunk-QH7E6SLA.js";
+import {
+  TuiChevron
+} from "./chunk-4UMSRQAI.js";
+import {
+  IntersectionObserverService,
+  WA_INTERSECTION_ROOT_MARGIN,
+  WA_INTERSECTION_THRESHOLD
+} from "./chunk-LTCVIAXJ.js";
 import {
   TuiLink
-} from "./chunk-K5BJBOBZ.js";
+} from "./chunk-XBS2AK2D.js";
 import {
   TuiIcon
-} from "./chunk-7UM6EQEU.js";
+} from "./chunk-ME2GCFUN.js";
 import {
   TUI_TEXTFIELD_OPTIONS
-} from "./chunk-4C4PKSE2.js";
+} from "./chunk-YOOG7IEM.js";
 import "./chunk-O5NPM64D.js";
-import {
-  TuiMapperPipe,
-  coerceBooleanProperty
-} from "./chunk-36T6O7WR.js";
-import "./chunk-CV2RTVPT.js";
+import "./chunk-GXT3SL4W.js";
 import {
   TuiButton,
   tuiButtonOptionsProvider
-} from "./chunk-DJ6WKRQZ.js";
+} from "./chunk-EHOQACUQ.js";
 import "./chunk-Y7YOVM7H.js";
-import "./chunk-POKAVABW.js";
 import {
   TuiDataList,
   TuiDataListComponent,
   TuiDropdownDirective,
   TuiDropdownOpen,
   TuiOption
-} from "./chunk-KJBJNCEM.js";
+} from "./chunk-IL5BKGHZ.js";
 import "./chunk-IHLRT44D.js";
-import {
-  TuiControl
-} from "./chunk-LAEKWENP.js";
-import {
-  PolymorpheusOutlet,
-  PolymorpheusTemplate
-} from "./chunk-SX7GMV2W.js";
-import "./chunk-4BMOQLYZ.js";
-import "./chunk-I7R3GOPA.js";
-import "./chunk-ZRKXNDNW.js";
-import {
-  tuiInjectElement
-} from "./chunk-TBFJZ2MD.js";
+import "./chunk-5V4URJWY.js";
+import "./chunk-QBEBPKKH.js";
 import {
   TUI_COMMON_ICONS,
   TUI_SPIN_ICONS,
   TUI_SPIN_TEXTS
-} from "./chunk-SYK4K5AT.js";
+} from "./chunk-4XVFG3K5.js";
+import {
+  tuiExtractI18n
+} from "./chunk-JCSNZRF4.js";
+import {
+  TuiMapperPipe,
+  coerceBooleanProperty
+} from "./chunk-36T6O7WR.js";
+import "./chunk-GZ275MQH.js";
+import {
+  TuiControl
+} from "./chunk-RG72SIOT.js";
+import {
+  PolymorpheusOutlet,
+  PolymorpheusTemplate
+} from "./chunk-SX7GMV2W.js";
+import "./chunk-XQO3CN4Y.js";
+import "./chunk-AMFLEHWL.js";
+import {
+  tuiInjectElement
+} from "./chunk-TBFJZ2MD.js";
 import {
   EMPTY_CLIENT_RECT,
   EMPTY_QUERY,
@@ -70,9 +79,6 @@ import {
   tuiTypedFromEvent,
   tuiWatch
 } from "./chunk-EEGF43CM.js";
-import {
-  tuiExtractI18n
-} from "./chunk-JCSNZRF4.js";
 import {
   takeUntilDestroyed,
   toSignal,
@@ -84,18 +90,12 @@ import {
   tuiPure,
   tuiWithStyles
 } from "./chunk-UQBCXIOX.js";
-import "./chunk-AMFLEHWL.js";
-import "./chunk-T544CS6O.js";
-import "./chunk-VQAQS4ES.js";
+import "./chunk-4P53LWHM.js";
 import {
   NgControl
 } from "./chunk-5GCG6HC6.js";
-import {
-  IntersectionObserverService,
-  WA_INTERSECTION_ROOT_MARGIN,
-  WA_INTERSECTION_THRESHOLD
-} from "./chunk-LTCVIAXJ.js";
-import "./chunk-4P53LWHM.js";
+import "./chunk-T544CS6O.js";
+import "./chunk-VQAQS4ES.js";
 import {
   AsyncPipe,
   DOCUMENT,

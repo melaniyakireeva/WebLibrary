@@ -18,7 +18,7 @@ import {
 import {
   TuiPlatform,
   TuiVisualViewport
-} from "./chunk-PUEKUOD5.js";
+} from "./chunk-PXHTA5BK.js";
 import {
   AbstractTuiAutofocusHandler,
   TUI_AUTOFOCUS_HANDLER,
@@ -30,19 +30,19 @@ import {
   TuiIosAutofocusHandler,
   TuiSynchronousAutofocusHandler,
   tuiAutoFocusOptionsProvider
-} from "./chunk-LWBNHFBG.js";
+} from "./chunk-QEZGUGMP.js";
 import {
   TuiLet,
   TuiLetContext,
   TuiPopoverDirective,
   TuiRepeatTimes,
   TuiRepeatTimesContext
-} from "./chunk-INMIMZ27.js";
+} from "./chunk-XYXATMIA.js";
 import {
   TuiHovered,
   TuiHoveredService,
   tuiHovered
-} from "./chunk-YTXAHEX5.js";
+} from "./chunk-G4PEARB7.js";
 import {
   TuiMapperPipe
 } from "./chunk-36T6O7WR.js";
@@ -55,7 +55,7 @@ import {
   TuiThemeColorService,
   tuiAsPopover,
   tuiInjectId
-} from "./chunk-CV2RTVPT.js";
+} from "./chunk-GZ275MQH.js";
 import {
   TuiActiveZone,
   TuiControl,
@@ -68,7 +68,7 @@ import {
   TuiValueTransformer,
   tuiAsControl,
   tuiAsPortal
-} from "./chunk-LAEKWENP.js";
+} from "./chunk-RG72SIOT.js";
 import "./chunk-SX7GMV2W.js";
 import {
   TUI_ACTIVE_ELEMENT,
@@ -115,7 +115,8 @@ import {
   tuiRgbToHsv,
   tuiRgbaToHex,
   tuiToGradient
-} from "./chunk-ZRKXNDNW.js";
+} from "./chunk-XQO3CN4Y.js";
+import "./chunk-AMFLEHWL.js";
 import {
   tuiContainsOrAfter,
   tuiGetActualTarget,
@@ -263,16 +264,15 @@ import {
   tuiUniqBy,
   tuiWithStyles
 } from "./chunk-UQBCXIOX.js";
-import "./chunk-AMFLEHWL.js";
-import "./chunk-T544CS6O.js";
-import "./chunk-VQAQS4ES.js";
+import {
+  WA_WINDOW
+} from "./chunk-4P53LWHM.js";
 import {
   ControlContainer,
   NgControl
 } from "./chunk-5GCG6HC6.js";
-import {
-  WA_WINDOW
-} from "./chunk-4P53LWHM.js";
+import "./chunk-T544CS6O.js";
+import "./chunk-VQAQS4ES.js";
 import {
   DOCUMENT
 } from "./chunk-6S6PAGJZ.js";

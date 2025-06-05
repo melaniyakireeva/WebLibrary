@@ -1,49 +1,4 @@
 import {
-  AsYouType,
-  MaskitoDirective,
-  Metadata,
-  PhoneNumberMatcher,
-  TUI_DAY_CAPS_MAPPER,
-  TUI_FLOATING_PRECISION,
-  TUI_SLIDER_DEFAULT_OPTIONS,
-  TUI_SLIDER_OPTIONS,
-  TuiCalendarMonth,
-  TuiCalendarRange,
-  TuiDayRangePeriod,
-  TuiRange,
-  TuiRangeChange,
-  TuiSlider,
-  TuiSliderComponent,
-  TuiSliderKeySteps,
-  TuiSliderReadonly,
-  TuiSliderThumbLabel,
-  TuiStringifyContentPipe,
-  VALID_PHONE_NUMBER_WITH_EXTENSION,
-  VALID_PUNCTUATION,
-  WHITESPACE,
-  calculateDisabledItemHandler,
-  createExtensionPattern,
-  getCountryCallingCode,
-  isValidCandidate,
-  isValidPreCandidate,
-  maskitoCaretGuard,
-  maskitoPrefixPostprocessorGenerator,
-  maskitoRemoveOnBlurPlugin,
-  parse,
-  parsePhoneNumberWithError,
-  parsePreCandidate,
-  tuiCreateDefaultDayRangePeriods,
-  tuiCreateTimePeriods,
-  tuiGetCallingCode,
-  tuiIsFlat,
-  tuiKeyStepValueToPercentage,
-  tuiMaskito,
-  tuiPercentageToKeyStepValue,
-  tuiSliderOptionsProvider,
-  tuiToggleDay,
-  validatePhoneNumberLength
-} from "./chunk-R3EPZLYT.js";
-import {
   TUI_BADGE_NOTIFICATION_DEFAULT_OPTIONS,
   TUI_BADGE_NOTIFICATION_OPTIONS,
   TUI_BLOCK_DEFAULT_OPTIONS,
@@ -91,25 +46,70 @@ import {
   tuiHighlightOptionsProvider,
   tuiPasswordOptionsProvider,
   tuiTabsOptionsProvider
-} from "./chunk-Q7UG2VTN.js";
+} from "./chunk-CPBFPK3E.js";
 import {
   TuiButtonSelect
-} from "./chunk-DZG4IJJ7.js";
-import {
-  MASKITO_DEFAULT_OPTIONS,
-  maskitoInitialCalibrationPlugin,
-  maskitoTransform
-} from "./chunk-E4KNHK6M.js";
+} from "./chunk-Q25RA73J.js";
 import {
   TuiBadgedContent,
   TuiBadgedContentComponent,
   TuiBadgedContentDirective
 } from "./chunk-OQPBBQUM.js";
 import {
+  AsYouType,
+  MaskitoDirective,
+  Metadata,
+  PhoneNumberMatcher,
+  TUI_DAY_CAPS_MAPPER,
+  TUI_FLOATING_PRECISION,
+  TUI_SLIDER_DEFAULT_OPTIONS,
+  TUI_SLIDER_OPTIONS,
+  TuiCalendarMonth,
+  TuiCalendarRange,
+  TuiDayRangePeriod,
+  TuiRange,
+  TuiRangeChange,
+  TuiSlider,
+  TuiSliderComponent,
+  TuiSliderKeySteps,
+  TuiSliderReadonly,
+  TuiSliderThumbLabel,
+  TuiStringifyContentPipe,
+  VALID_PHONE_NUMBER_WITH_EXTENSION,
+  VALID_PUNCTUATION,
+  WHITESPACE,
+  calculateDisabledItemHandler,
+  createExtensionPattern,
+  getCountryCallingCode,
+  isValidCandidate,
+  isValidPreCandidate,
+  maskitoCaretGuard,
+  maskitoPrefixPostprocessorGenerator,
+  maskitoRemoveOnBlurPlugin,
+  parse,
+  parsePhoneNumberWithError,
+  parsePreCandidate,
+  tuiCreateDefaultDayRangePeriods,
+  tuiCreateTimePeriods,
+  tuiGetCallingCode,
+  tuiIsFlat,
+  tuiKeyStepValueToPercentage,
+  tuiMaskito,
+  tuiPercentageToKeyStepValue,
+  tuiSliderOptionsProvider,
+  tuiToggleDay,
+  validatePhoneNumberLength
+} from "./chunk-PVXT2YWC.js";
+import {
+  MASKITO_DEFAULT_OPTIONS,
+  maskitoInitialCalibrationPlugin,
+  maskitoTransform
+} from "./chunk-E4KNHK6M.js";
+import {
   TuiDataListGroupWrapperComponent,
   TuiDataListWrapper,
   TuiDataListWrapperComponent
-} from "./chunk-VT7BWYU4.js";
+} from "./chunk-IEIOM67R.js";
 import {
   TUI_CALENDAR_DATE_STREAM,
   TUI_CALENDAR_MONTHS,
@@ -154,38 +154,26 @@ import {
   tuiItemsHandlersProvider,
   tuiPreviewIconsProvider,
   tuiValidationErrorsProvider
-} from "./chunk-MJEN4Q2A.js";
-import {
-  ActivatedRoute,
-  Router,
-  RouterLinkActive
-} from "./chunk-RBXGSGJT.js";
-import {
-  TuiPan,
-  TuiSwipe,
-  TuiValidator,
-  TuiZoom
-} from "./chunk-M3LWSQNS.js";
-import {
-  TuiItem
-} from "./chunk-BSICSO6W.js";
-import "./chunk-WLKNPQYG.js";
+} from "./chunk-2BKPX4BP.js";
 import {
   TUI_ALERTS,
   TUI_DIALOGS,
   TuiDialogService
-} from "./chunk-A4RQREL2.js";
-import {
-  TuiFormatDatePipe,
-  TuiGroup,
-  tuiGroupOptionsProvider
-} from "./chunk-LTU3POKK.js";
+} from "./chunk-UY6L5T2N.js";
 import {
   TuiExpand,
   TuiExpandComponent,
   TuiExpandContent
-} from "./chunk-WGZ4IWEW.js";
-import "./chunk-OX7XDX3M.js";
+} from "./chunk-TFBF5V7K.js";
+import {
+  TuiFormatDatePipe,
+  TuiGroup,
+  tuiGroupOptionsProvider
+} from "./chunk-LNGG65CC.js";
+import {
+  TuiLoader
+} from "./chunk-OVN7HHBM.js";
+import "./chunk-J7CSEIVW.js";
 import {
   TUI_HINT_COMPONENT,
   TUI_HINT_PROVIDERS,
@@ -196,22 +184,15 @@ import {
   TuiHintManual,
   TuiHintOverflow,
   tuiHintOptionsProvider
-} from "./chunk-FWZYKTTW.js";
-import {
-  TuiLoader
-} from "./chunk-HZANM4AN.js";
-import {
-  TuiAutoFocus
-} from "./chunk-LWBNHFBG.js";
-import {
-  TuiLet,
-  TuiPopoverDirective,
-  TuiRepeatTimes
-} from "./chunk-INMIMZ27.js";
-import "./chunk-YTXAHEX5.js";
+} from "./chunk-CFZ4TF27.js";
 import {
   TuiFlagPipe
-} from "./chunk-MMJEZJXJ.js";
+} from "./chunk-2ORYGUA4.js";
+import {
+  ActivatedRoute,
+  Router,
+  RouterLinkActive
+} from "./chunk-RBXGSGJT.js";
 import {
   TUI_CHIP_DEFAULT_OPTIONS,
   TUI_CHIP_OPTIONS,
@@ -231,13 +212,7 @@ import {
   TuiTilesComponent,
   tuiChipOptionsProvider,
   tuiProgressOptionsProvider
-} from "./chunk-KCS7CNUS.js";
-import {
-  TUI_CHECKBOX_DEFAULT_OPTIONS,
-  TUI_CHECKBOX_OPTIONS,
-  TuiCheckbox,
-  tuiCheckboxOptionsProvider
-} from "./chunk-6J6BA2D3.js";
+} from "./chunk-OPKUPS3B.js";
 import {
   MutationObserverService,
   TUI_AVATAR_DEFAULT_OPTIONS,
@@ -254,24 +229,36 @@ import {
   WaMutationObserver,
   tuiAvatarOptionsProvider,
   tuiSwitchOptionsProvider
-} from "./chunk-IOJOZZZW.js";
-import {
-  TUI_CHEVRON,
-  TuiChevron
-} from "./chunk-YNKCD5LD.js";
+} from "./chunk-SF3F4LER.js";
 import {
   TUI_BADGE_DEFAULT_OPTIONS,
   TUI_BADGE_OPTIONS,
   TuiBadge,
   tuiBadgeOptionsProvider
-} from "./chunk-VPDUVDIQ.js";
+} from "./chunk-VVR4ONNT.js";
+import {
+  TUI_CHECKBOX_DEFAULT_OPTIONS,
+  TUI_CHECKBOX_OPTIONS,
+  TuiCheckbox,
+  tuiCheckboxOptionsProvider
+} from "./chunk-QH7E6SLA.js";
+import {
+  TUI_CHEVRON,
+  TuiChevron
+} from "./chunk-4UMSRQAI.js";
+import {
+  WaIntersectionObservee,
+  WaIntersectionObserver,
+  WaIntersectionObserverDirective,
+  WaIntersectionRoot
+} from "./chunk-LTCVIAXJ.js";
 import {
   TuiLink,
   tuiLinkOptionsProvider
-} from "./chunk-K5BJBOBZ.js";
+} from "./chunk-XBS2AK2D.js";
 import {
   TuiIcon
-} from "./chunk-7UM6EQEU.js";
+} from "./chunk-ME2GCFUN.js";
 import {
   TUI_TEXTFIELD_OPTIONS,
   TuiSelect,
@@ -281,34 +268,24 @@ import {
   TuiTextfieldDirective,
   TuiTextfieldDropdownDirective,
   tuiTextfieldOptionsProvider
-} from "./chunk-4C4PKSE2.js";
+} from "./chunk-YOOG7IEM.js";
 import {
   ResizeObserverService,
   WaResizeObserver
 } from "./chunk-O5NPM64D.js";
 import {
-  coerceArray
-} from "./chunk-36T6O7WR.js";
-import {
-  TuiIdService,
-  TuiNativeValidator,
-  TuiPopoverService,
-  TuiScrollService,
-  tuiAsPopover
-} from "./chunk-CV2RTVPT.js";
+  TuiLabel
+} from "./chunk-GXT3SL4W.js";
 import {
   TUI_BUTTON_OPTIONS,
   TuiButton,
   tuiButtonOptionsProvider
-} from "./chunk-DJ6WKRQZ.js";
+} from "./chunk-EHOQACUQ.js";
 import {
   TuiAppearance,
   TuiWithAppearance,
   tuiAppearanceOptionsProvider
 } from "./chunk-Y7YOVM7H.js";
-import {
-  TuiLabel
-} from "./chunk-POKAVABW.js";
 import {
   TUI_DATA_LIST_HOST,
   TuiBreakpointService,
@@ -325,22 +302,10 @@ import {
   tuiDropdown,
   tuiDropdownOpen,
   tuiDropdownOptionsProvider
-} from "./chunk-KJBJNCEM.js";
+} from "./chunk-IL5BKGHZ.js";
 import {
   shouldCall
 } from "./chunk-IHLRT44D.js";
-import {
-  TuiControl,
-  TuiValidationError,
-  tuiAsControl
-} from "./chunk-LAEKWENP.js";
-import {
-  PolymorpheusComponent,
-  PolymorpheusOutlet,
-  PolymorpheusTemplate,
-  injectContext
-} from "./chunk-SX7GMV2W.js";
-import "./chunk-4BMOQLYZ.js";
 import {
   tuiFadeIn,
   tuiGetDuration,
@@ -350,14 +315,64 @@ import {
   tuiSlideInRight,
   tuiSlideInTop,
   tuiToAnimationOptions
-} from "./chunk-I7R3GOPA.js";
+} from "./chunk-5V4URJWY.js";
+import "./chunk-QBEBPKKH.js";
+import {
+  TUI_ANIMATIONS_SPEED,
+  TUI_CLOSE_WORD,
+  TUI_COMMON_ICONS,
+  TUI_SPIN_ICONS,
+  tuiInjectIconResolver
+} from "./chunk-4XVFG3K5.js";
+import "./chunk-JCSNZRF4.js";
+import {
+  TuiPan,
+  TuiSwipe,
+  TuiValidator,
+  TuiZoom
+} from "./chunk-M3LWSQNS.js";
+import {
+  TuiItem
+} from "./chunk-BSICSO6W.js";
+import "./chunk-WLKNPQYG.js";
+import {
+  TuiAutoFocus
+} from "./chunk-QEZGUGMP.js";
+import {
+  TuiLet,
+  TuiPopoverDirective,
+  TuiRepeatTimes
+} from "./chunk-XYXATMIA.js";
+import "./chunk-G4PEARB7.js";
+import {
+  coerceArray
+} from "./chunk-36T6O7WR.js";
+import {
+  TuiIdService,
+  TuiNativeValidator,
+  TuiPopoverService,
+  TuiScrollService,
+  tuiAsPopover
+} from "./chunk-GZ275MQH.js";
+import {
+  TuiControl,
+  TuiValidationError,
+  tuiAsControl
+} from "./chunk-RG72SIOT.js";
+import {
+  PolymorpheusComponent,
+  PolymorpheusOutlet,
+  PolymorpheusTemplate,
+  injectContext
+} from "./chunk-SX7GMV2W.js";
 import {
   TUI_IS_MOBILE,
   tuiCreateOptions,
   tuiFallbackValueProvider,
   tuiIsNativeFocusedIn,
   tuiMoveFocus
-} from "./chunk-ZRKXNDNW.js";
+} from "./chunk-XQO3CN4Y.js";
+import "./chunk-AMFLEHWL.js";
 import {
   tuiInjectElement,
   tuiIsCurrentTarget,
@@ -366,13 +381,6 @@ import {
   tuiIsInput,
   tuiIsInputEvent
 } from "./chunk-TBFJZ2MD.js";
-import {
-  TUI_ANIMATIONS_SPEED,
-  TUI_CLOSE_WORD,
-  TUI_COMMON_ICONS,
-  TUI_SPIN_ICONS,
-  tuiInjectIconResolver
-} from "./chunk-SYK4K5AT.js";
 import {
   CHAR_NO_BREAK_SPACE,
   CHAR_PLUS,
@@ -392,7 +400,6 @@ import {
   tuiZonefree,
   tuiZonefreeScheduler
 } from "./chunk-EEGF43CM.js";
-import "./chunk-JCSNZRF4.js";
 import {
   takeUntilDestroyed,
   toObservable,
@@ -410,11 +417,10 @@ import {
   tuiRound,
   tuiWithStyles
 } from "./chunk-UQBCXIOX.js";
-import "./chunk-AMFLEHWL.js";
 import {
-  DomSanitizer
-} from "./chunk-T544CS6O.js";
-import "./chunk-VQAQS4ES.js";
+  WA_PAGE_VISIBILITY,
+  WA_WINDOW
+} from "./chunk-4P53LWHM.js";
 import {
   CheckboxControlValueAccessor,
   ControlContainer,
@@ -430,15 +436,9 @@ import {
   Validators
 } from "./chunk-5GCG6HC6.js";
 import {
-  WaIntersectionObservee,
-  WaIntersectionObserver,
-  WaIntersectionObserverDirective,
-  WaIntersectionRoot
-} from "./chunk-LTCVIAXJ.js";
-import {
-  WA_PAGE_VISIBILITY,
-  WA_WINDOW
-} from "./chunk-4P53LWHM.js";
+  DomSanitizer
+} from "./chunk-T544CS6O.js";
+import "./chunk-VQAQS4ES.js";
 import {
   AsyncPipe,
   CommonModule,

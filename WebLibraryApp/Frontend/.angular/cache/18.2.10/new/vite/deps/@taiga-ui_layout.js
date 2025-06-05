@@ -2,61 +2,57 @@ import {
   tuiBadgeNotificationOptionsProvider,
   tuiBlockOptionsProvider,
   tuiTabsOptionsProvider
-} from "./chunk-Q7UG2VTN.js";
-import "./chunk-DZG4IJJ7.js";
+} from "./chunk-CPBFPK3E.js";
+import "./chunk-Q25RA73J.js";
 import "./chunk-E4KNHK6M.js";
-import "./chunk-MJEN4Q2A.js";
+import "./chunk-2BKPX4BP.js";
+import {
+  TuiExpand,
+  TuiExpandComponent
+} from "./chunk-TFBF5V7K.js";
+import "./chunk-OVN7HHBM.js";
+import {
+  TuiHintDirective,
+  tuiHintOptionsProvider
+} from "./chunk-CFZ4TF27.js";
 import {
   RouterLink,
   RouterLinkActive
 } from "./chunk-RBXGSGJT.js";
-import {
-  TuiItem
-} from "./chunk-BSICSO6W.js";
-import {
-  TuiExpand,
-  TuiExpandComponent
-} from "./chunk-WGZ4IWEW.js";
-import {
-  TuiHintDirective,
-  tuiHintOptionsProvider
-} from "./chunk-FWZYKTTW.js";
-import "./chunk-HZANM4AN.js";
-import "./chunk-YTXAHEX5.js";
 import {
   MutationObserverService,
   TuiFade,
   WA_MUTATION_OBSERVER_INIT,
   tuiAvatarOptionsProvider,
   tuiSwitchOptionsProvider
-} from "./chunk-IOJOZZZW.js";
+} from "./chunk-SF3F4LER.js";
+import {
+  tuiBadgeOptionsProvider
+} from "./chunk-VVR4ONNT.js";
 import {
   TUI_CHEVRON,
   TuiChevron
-} from "./chunk-YNKCD5LD.js";
-import {
-  tuiBadgeOptionsProvider
-} from "./chunk-VPDUVDIQ.js";
+} from "./chunk-4UMSRQAI.js";
+import "./chunk-LTCVIAXJ.js";
 import {
   TuiIcon
-} from "./chunk-7UM6EQEU.js";
+} from "./chunk-ME2GCFUN.js";
 import {
   TuiTextfieldOptionsDirective,
   tuiTextfieldOptionsProvider
-} from "./chunk-4C4PKSE2.js";
+} from "./chunk-YOOG7IEM.js";
 import {
   ResizeObserverService
 } from "./chunk-O5NPM64D.js";
-import "./chunk-CV2RTVPT.js";
+import "./chunk-GXT3SL4W.js";
 import {
   TuiButton,
   tuiButtonOptionsProvider
-} from "./chunk-DJ6WKRQZ.js";
+} from "./chunk-EHOQACUQ.js";
 import {
   TuiAppearance,
   tuiAppearanceOptionsProvider
 } from "./chunk-Y7YOVM7H.js";
-import "./chunk-POKAVABW.js";
 import {
   TUI_DATA_LIST_HOST,
   TUI_DROPDOWN_COMPONENT,
@@ -73,41 +69,47 @@ import {
   TuiWithDropdownOpen,
   tuiDropdown,
   tuiDropdownOptionsProvider
-} from "./chunk-KJBJNCEM.js";
+} from "./chunk-IL5BKGHZ.js";
 import "./chunk-IHLRT44D.js";
-import {
-  TuiActiveZone
-} from "./chunk-LAEKWENP.js";
-import {
-  PolymorpheusOutlet
-} from "./chunk-SX7GMV2W.js";
-import {
-  TuiIcons
-} from "./chunk-4BMOQLYZ.js";
 import {
   TuiScrollable,
   TuiScrollbar,
   tuiSlideInLeft,
   tuiToAnimationOptions
-} from "./chunk-I7R3GOPA.js";
-import "./chunk-ZRKXNDNW.js";
+} from "./chunk-5V4URJWY.js";
 import {
-  tuiInjectElement
-} from "./chunk-TBFJZ2MD.js";
+  TuiIcons
+} from "./chunk-QBEBPKKH.js";
 import {
   TUI_ANIMATIONS_SPEED,
   TUI_COMMON_ICONS,
   TUI_ICON_END,
   TUI_ICON_START,
   TUI_SPIN_ICONS
-} from "./chunk-SYK4K5AT.js";
+} from "./chunk-4XVFG3K5.js";
+import "./chunk-JCSNZRF4.js";
+import {
+  TuiItem
+} from "./chunk-BSICSO6W.js";
+import "./chunk-G4PEARB7.js";
+import "./chunk-GZ275MQH.js";
+import {
+  TuiActiveZone
+} from "./chunk-RG72SIOT.js";
+import {
+  PolymorpheusOutlet
+} from "./chunk-SX7GMV2W.js";
+import "./chunk-XQO3CN4Y.js";
+import "./chunk-AMFLEHWL.js";
+import {
+  tuiInjectElement
+} from "./chunk-TBFJZ2MD.js";
 import {
   EMPTY_QUERY,
   tuiControlValue,
   tuiQueryListChanges,
   tuiZonefull
 } from "./chunk-EEGF43CM.js";
-import "./chunk-JCSNZRF4.js";
 import {
   toObservable,
   toSignal,
@@ -118,14 +120,12 @@ import {
   tuiProvideOptions,
   tuiWithStyles
 } from "./chunk-UQBCXIOX.js";
-import "./chunk-AMFLEHWL.js";
-import "./chunk-T544CS6O.js";
-import "./chunk-VQAQS4ES.js";
+import "./chunk-4P53LWHM.js";
 import {
   NgControl
 } from "./chunk-5GCG6HC6.js";
-import "./chunk-LTCVIAXJ.js";
-import "./chunk-4P53LWHM.js";
+import "./chunk-T544CS6O.js";
+import "./chunk-VQAQS4ES.js";
 import {
   AsyncPipe,
   NgForOf,

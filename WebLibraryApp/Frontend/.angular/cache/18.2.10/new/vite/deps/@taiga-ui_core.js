@@ -1,7 +1,4 @@
 import {
-  TuiNumberFormat
-} from "./chunk-IIG6CKHY.js";
-import {
   TUI_ALERTS,
   TUI_ALERTS_GROUPED,
   TUI_ALERT_DEFAULT_OPTIONS,
@@ -28,7 +25,16 @@ import {
   tuiDialog,
   tuiDialogOptionsProvider,
   tuiNotificationOptionsProvider
-} from "./chunk-A4RQREL2.js";
+} from "./chunk-UY6L5T2N.js";
+import {
+  TUI_EXPAND_LOADED,
+  TuiExpand,
+  TuiExpandComponent,
+  TuiExpandContent
+} from "./chunk-TFBF5V7K.js";
+import {
+  TuiNumberFormat
+} from "./chunk-DJ7DNRDH.js";
 import {
   TUI_GROUP_DEFAULT_OPTIONS,
   TUI_GROUP_OPTIONS,
@@ -46,16 +52,16 @@ import {
   TuiOrderWeekDaysPipe,
   TuiSpinButton,
   tuiGroupOptionsProvider
-} from "./chunk-LTU3POKK.js";
+} from "./chunk-LNGG65CC.js";
 import {
-  TUI_EXPAND_LOADED,
-  TuiExpand,
-  TuiExpandComponent,
-  TuiExpandContent
-} from "./chunk-WGZ4IWEW.js";
+  TUI_LOADER_DEFAULT_OPTIONS,
+  TUI_LOADER_OPTIONS,
+  TuiLoader,
+  tuiLoaderOptionsProvider
+} from "./chunk-OVN7HHBM.js";
 import {
   TuiMonthPipe
-} from "./chunk-OX7XDX3M.js";
+} from "./chunk-J7CSEIVW.js";
 import {
   TUI_HINT_COMPONENT,
   TUI_HINT_DEFAULT_OPTIONS,
@@ -79,33 +85,20 @@ import {
   TuiHintUnstyledComponent,
   TuiHints,
   tuiHintOptionsProvider
-} from "./chunk-FWZYKTTW.js";
-import {
-  TUI_LOADER_DEFAULT_OPTIONS,
-  TUI_LOADER_OPTIONS,
-  TuiLoader,
-  tuiLoaderOptionsProvider
-} from "./chunk-HZANM4AN.js";
-import {
-  TuiPlatform,
-  TuiVisualViewport
-} from "./chunk-PUEKUOD5.js";
-import "./chunk-LWBNHFBG.js";
-import "./chunk-INMIMZ27.js";
-import "./chunk-YTXAHEX5.js";
+} from "./chunk-CFZ4TF27.js";
 import {
   TuiFlagPipe
-} from "./chunk-MMJEZJXJ.js";
+} from "./chunk-2ORYGUA4.js";
 import {
   TUI_LINK_DEFAULT_OPTIONS,
   TUI_LINK_OPTIONS,
   TuiLink,
   tuiLinkOptionsProvider
-} from "./chunk-K5BJBOBZ.js";
+} from "./chunk-XBS2AK2D.js";
 import {
   TuiIcon,
   TuiIconPipe
-} from "./chunk-7UM6EQEU.js";
+} from "./chunk-ME2GCFUN.js";
 import {
   TUI_TEXTFIELD_OPTIONS,
   TuiSelect,
@@ -118,16 +111,17 @@ import {
   TuiTextfieldOptionsDirective,
   TuiWithTextfieldDropdown,
   tuiTextfieldOptionsProvider
-} from "./chunk-4C4PKSE2.js";
+} from "./chunk-YOOG7IEM.js";
 import "./chunk-O5NPM64D.js";
-import "./chunk-36T6O7WR.js";
-import "./chunk-CV2RTVPT.js";
+import {
+  TuiLabel
+} from "./chunk-GXT3SL4W.js";
 import {
   TUI_BUTTON_DEFAULT_OPTIONS,
   TUI_BUTTON_OPTIONS,
   TuiButton,
   tuiButtonOptionsProvider
-} from "./chunk-DJ6WKRQZ.js";
+} from "./chunk-EHOQACUQ.js";
 import {
   TUI_APPEARANCE_DEFAULT_OPTIONS,
   TUI_APPEARANCE_OPTIONS,
@@ -139,9 +133,6 @@ import {
   tuiAppearanceOptionsProvider,
   tuiAppearanceState
 } from "./chunk-Y7YOVM7H.js";
-import {
-  TuiLabel
-} from "./chunk-POKAVABW.js";
 import {
   TUI_DATA_LIST_ACCESSOR,
   TUI_DATA_LIST_HOST,
@@ -204,20 +195,10 @@ import {
   tuiPositionAccessorFor,
   tuiProvideAccessor,
   tuiRectAccessorFor
-} from "./chunk-KJBJNCEM.js";
+} from "./chunk-IL5BKGHZ.js";
 import {
   PreventEventPlugin
 } from "./chunk-IHLRT44D.js";
-import {
-  TuiValidationError
-} from "./chunk-LAEKWENP.js";
-import {
-  PolymorpheusOutlet
-} from "./chunk-SX7GMV2W.js";
-import {
-  TuiIcons,
-  TuiWithIcons
-} from "./chunk-4BMOQLYZ.js";
 import {
   SCROLL_REF_SELECTOR,
   TUI_ANIMATIONS_DEFAULT_DURATION,
@@ -271,11 +252,11 @@ import {
   tuiToAnimationOptions,
   tuiWidthCollapse,
   tuiWidthCollapseList
-} from "./chunk-I7R3GOPA.js";
+} from "./chunk-5V4URJWY.js";
 import {
-  TUI_IS_MOBILE
-} from "./chunk-ZRKXNDNW.js";
-import "./chunk-TBFJZ2MD.js";
+  TuiIcons,
+  TuiWithIcons
+} from "./chunk-QBEBPKKH.js";
 import {
   TUI_ANIMATIONS_SPEED,
   TUI_ASSETS_PATH,
@@ -317,26 +298,45 @@ import {
   tuiIconsProvider,
   tuiInjectIconResolver,
   tuiNumberFormatProvider
-} from "./chunk-SYK4K5AT.js";
+} from "./chunk-4XVFG3K5.js";
+import "./chunk-JCSNZRF4.js";
+import {
+  TuiPlatform,
+  TuiVisualViewport
+} from "./chunk-PXHTA5BK.js";
+import "./chunk-QEZGUGMP.js";
+import "./chunk-XYXATMIA.js";
+import "./chunk-G4PEARB7.js";
+import "./chunk-36T6O7WR.js";
+import "./chunk-GZ275MQH.js";
+import {
+  TuiValidationError
+} from "./chunk-RG72SIOT.js";
+import {
+  PolymorpheusOutlet
+} from "./chunk-SX7GMV2W.js";
+import {
+  TUI_IS_MOBILE
+} from "./chunk-XQO3CN4Y.js";
+import "./chunk-AMFLEHWL.js";
+import "./chunk-TBFJZ2MD.js";
 import {
   TUI_VERSION,
   tuiWatch,
   tuiZonefreeScheduler
 } from "./chunk-EEGF43CM.js";
-import "./chunk-JCSNZRF4.js";
 import {
   toSignal,
   tuiIsString,
   tuiProvide,
   tuiWithStyles
 } from "./chunk-UQBCXIOX.js";
-import "./chunk-AMFLEHWL.js";
+import "./chunk-4P53LWHM.js";
+import "./chunk-5GCG6HC6.js";
 import {
   EVENT_MANAGER_PLUGINS
 } from "./chunk-T544CS6O.js";
 import "./chunk-VQAQS4ES.js";
-import "./chunk-5GCG6HC6.js";
-import "./chunk-4P53LWHM.js";
 import {
   DOCUMENT,
   NgIf
