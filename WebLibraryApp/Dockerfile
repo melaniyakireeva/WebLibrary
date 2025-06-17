@@ -24,19 +24,18 @@ RUN npm install -g @angular/cli@18.2.10
 # 2. Копируем package файлы
 COPY Frontend/package.json Frontend/package-lock.json ./
 
-# 3. Явно устанавливаем Rollup перед основными зависимостями
-RUN npm install --no-save rollup@3.29.4 @rollup/rollup-linux-x64-gnu
+# 3. Очистка и переустановка зависимостей (ваш код добавлен здесь)
+RUN rm -rf node_modules package-lock.json && \
+    npm install --no-save rollup@3.29.4 @rollup/rollup-linux-x64-gnu && \
+    npm ci --no-optional --force
 
-# 4. Установка основных зависимостей с очисткой кеша
-RUN npm ci --no-optional --force
-
-# 5. Проверяем установленные версии Rollup
+# 4. Проверяем установленные версии Rollup
 RUN npm list rollup @rollup/rollup-linux-x64-gnu
 
-# 6. Копируем исходный код
+# 5. Копируем исходный код
 COPY Frontend/ .
 
-# 7. Сборка с дополнительными флагами
+# 6. Сборка с дополнительными флагами
 RUN ng build --configuration production \
     --base-href="https://wisdom-frontend-1947-5cd9.twcl.net/" \
     --verbose
